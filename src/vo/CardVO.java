@@ -11,6 +11,7 @@ public class CardVO {
     private String url;
     private String company;
     private String photo_path;
+    private String uid;
 
     public int getId() {
         return id;
@@ -91,4 +92,8 @@ public class CardVO {
     public void setPhoto_path(String photo_path) {
         this.photo_path = photo_path;
     }
+
+    public String getUid() { return uid; }
+
+    public void setUid(String uid) { this.uid = uid; }
 }

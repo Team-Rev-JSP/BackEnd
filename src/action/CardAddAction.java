@@ -25,6 +25,7 @@ public class CardAddAction implements Action {
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
         vo.setPhoto_path(request.getParameter("photo_path"));
+        vo.setUid(request.getParameter("uid"));
         CardAddService cardAddService = new CardAddService();
         boolean isWriteSuccess = cardAddService.registcard(vo);
 
