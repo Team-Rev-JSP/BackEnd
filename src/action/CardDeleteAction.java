@@ -17,11 +17,10 @@ public class CardDeleteAction implements Action {
         int id = Integer.parseInt(ids);
         String password = request.getParameter("user_password");
         */
-        int id = 36;
-        String password = "김똥팔이";
+        int id = 42;
         ActionForward forward = new ActionForward();
         CardDeleteService cardDeleteService = new CardDeleteService();
-        boolean isWriteDelete = cardDeleteService.isChkCardUser(id, password); // 패스워드까지 넘겨야함 자기만 자기 명함을 지울수있게 체크
+      /*  boolean isWriteDelete = cardDeleteService.isChkCardUser(id);  패스워드까지 넘겨야함 자기만 자기 명함을 지울수있게 체크
         System.out.println(isWriteDelete);
         if(!isWriteDelete){
             request.setCharacterEncoding("UTF-8");
@@ -31,7 +30,7 @@ public class CardDeleteAction implements Action {
             out.println("history.back();");
             out.println("</script>");
             out.close();
-        }else{
+        }else*/
             boolean isDeleteChk = cardDeleteService.deletecard(id);
             System.out.println("isChecke" + isDeleteChk);
             if(!isDeleteChk) {
@@ -46,7 +45,6 @@ public class CardDeleteAction implements Action {
                 forward.setRedirect(true);
                 forward.setPath("cardLists.bo");
             }
-        }
         return forward;
     }
 }

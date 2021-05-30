@@ -13,7 +13,7 @@
 <body>
 <h5><span>로그인</span> 페이지입니다.</h5>
 <hr />
-<form action="addcard.bo" method="post">
+<form action="cardAdd.bo" method="post">
     <input type="text" placeholder="id" name="id" required style="height:30px; width: 380px" /><br />
     <input type="text" placeholder="name" name="name" required style="height:30px; width: 380px" /><br />
     <input type="text" placeholder="phone" name="phone" required style="height:30px; width: 380px" /><br />

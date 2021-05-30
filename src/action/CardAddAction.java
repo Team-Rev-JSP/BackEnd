@@ -16,7 +16,6 @@ public class CardAddAction implements Action {
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         CardVO vo = new CardVO();
         ActionForward forward = new ActionForward();
-        String s = "";
         vo.setName(request.getParameter("name"));
         vo.setPhone(request.getParameter("phone"));
         vo.setEmail(request.getParameter("email"));

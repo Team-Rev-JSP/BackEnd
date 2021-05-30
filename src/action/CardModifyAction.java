@@ -16,17 +16,17 @@ public class CardModifyAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         CardVO vo = new CardVO();
-        int id = 38;
+        int id = 47;
         vo.setId(id);
-        vo.setName("마스터손");
-        vo.setPhone("01039004879");
-        vo.setEmail("니머하노지금");
-        vo.setPosition("메시");
-        vo.setAddress("반미콘");
-        vo.setFax("팩스있다");
-        vo.setUrl("///qweqwqe");
-        vo.setCompany("영진전문대학");
-        vo.setPhoto_path("아이폰");
+        vo.setName("김똥필");
+        vo.setPhone("0102139210213");
+        vo.setEmail("동팔동팔");
+        vo.setPosition("똥팔");
+        vo.setAddress("월성");
+        vo.setFax("팩스팩스");
+        vo.setUrl("///dongpal");
+        vo.setCompany("고속도로");
+        vo.setPhoto_path("폰없음");
 //        vo.setId(request.getParameter("id"));
 //        vo.setName(request.getParameter("name"));
 //        vo.setPhone(request.getParameter("phone"));

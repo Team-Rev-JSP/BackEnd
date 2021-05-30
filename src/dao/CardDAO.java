@@ -224,6 +224,7 @@ public class CardDAO {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             result = ps.executeUpdate();
+            System.out.println("DAO도착");
 
         }catch(Exception e){
             e.printStackTrace();

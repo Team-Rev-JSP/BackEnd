@@ -23,13 +23,13 @@ public class CardDeleteService {
         return isDeleteSuccess;
     }
 
-    public boolean isChkCardUser(int id, String password) throws Exception{ // 명함 주인 체크
-        boolean isChkCardUser = false;
-        Connection con = getConnection();
-        CardDAO cardDAO = CardDAO.getInstance();
-        cardDAO.setConnection(con);
-        isChkCardUser = cardDAO.isChkCardWriter(id, password);
-        close(con);
-        return isChkCardUser;
-    }
+//    public boolean isChkCardUser(int id, String password) throws Exception{ // 명함 주인 체크
+//        boolean isChkCardUser = false;
+//        Connection con = getConnection();
+//        CardDAO cardDAO = CardDAO.getInstance();
+//        cardDAO.setConnection(con);
+//        isChkCardUser = cardDAO.isChkCardWriter(id, password);
+//        close(con);
+//        return isChkCardUser;
+//    }
 }

@@ -30,7 +30,7 @@ public class WebController extends HttpServlet {
             forward.setPath("/view/main.jsp");
         } else if(command.equals("/cardAdd_page.bo")) { // 명함 등록 페이지 login으로 알면됨
             forward = new ActionForward();
-            forward.setPath("/view/cardAdd.jsp");
+            forward.setPath("/view/login.jsp");
         } else if(command.equals("/cardAdd.bo")) { //명함 등록 서비스
             action = new CardAddAction();
             try {
