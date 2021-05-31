@@ -17,7 +17,7 @@ public class JoinAction implements Action {
         ActionForward forward = new ActionForward();
         vo.setId(request.getParameter("id"));
         vo.setPassword(request.getParameter("password"));
-        vo.setAuthority(request.getParameter("auth"));
+        vo.setAuthority(request.getParameter("nickname"));
         JoinService joinService = new JoinService();
         boolean isWriteSuccess = joinService.registcard(vo);
 
@@ -25,7 +25,7 @@ public class JoinAction implements Action {
             request.setCharacterEncoding("UTF-8");
             PrintWriter out=response.getWriter();
             out.println("<script>");
-            out.println("alert('명함등록에 실패하였습니다.');");
+            out.println("alert('계정등록에 실패하였습니다.');");
             out.println("history.back();");
             out.println("</script>");
             out.close();

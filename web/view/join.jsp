@@ -33,11 +33,10 @@
         </tr>
         <tr>
             <td>
-                <label for = "auth1">권한 : </label>
+                <label for = "nickname">닉네임 : </label>
             </td>
             <td>
-                <input type="radio" name="auth" value="user" checked id = "auth1"/> USER
-                <input type="radio" name="auth" value="user" checked id = "auth2"/> ADMIN
+                <input type="text" id="nickname" name="nickname">
             </td>
         </tr>
         <tr>

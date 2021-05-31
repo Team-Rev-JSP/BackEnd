@@ -35,7 +35,7 @@ public class AccountDAO {
         int result = 0;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO account (id, password, authority) VALUES (?,?,?)";
+        String sql = "INSERT INTO account (id, password, nickname) VALUES (?,?,?)";
 
         try{
             ps = con.prepareStatement(sql);
