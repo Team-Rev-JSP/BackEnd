@@ -79,7 +79,7 @@ public class WebController extends HttpServlet {
         e.printStackTrace();
       }
     }
-    else if (command.equals("/login_page.bo")) { // 회원가입 페이지
+    else if (command.equals("/login_page.bo")) { // 로그인 페이지
       forward = new ActionForward();
       forward.setPath("/view/login.jsp");
     } else if (command.equals("/login.bo")) {

@@ -31,7 +31,7 @@ public class JoinAction implements Action {
             out.close();
         }else{
             forward.setRedirect(true);
-            forward.setPath("main_page.bo");
+            forward.setPath("login_page.bo");
         }
         return forward;
     }

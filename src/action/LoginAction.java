@@ -20,9 +20,10 @@ public class LoginAction implements Action {
         boolean isWriteSuccess = loginService.registAccount(vo);
 
         if(!isWriteSuccess){
+            response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             PrintWriter out=response.getWriter();
-            out.println("<script type=\"text/javascript\"charset=\"utf-8\">");
+            out.println("<script>");
             out.println("alert('로그인 실패');");
             out.println("history.back();");
             out.println("</script>");
