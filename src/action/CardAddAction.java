@@ -30,6 +30,7 @@ public class CardAddAction implements Action {
 
         if(!isWriteSuccess){
             request.setCharacterEncoding("UTF-8");
+            response.setContentType("text/html;charset=utf-8");
             PrintWriter out=response.getWriter();
             out.println("<script>");
             out.println("alert('명함등록에 실패하였습니다.');");

@@ -11,10 +11,10 @@ public class CardModifyViewAction implements Action{
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 //        String ids = request.getParameter("id");
 //        int id = Integer.parseInt(ids);
-        int id = 32;
+        int idx = 32;
 
         CardModifyService cardModifyViewService = new CardModifyService();
-        CardVO param = cardModifyViewService.ModifyView(id);
+        CardVO param = cardModifyViewService.ModifyView(idx);
         request.setAttribute("modList", param);
         ActionForward forward = new ActionForward();
         forward.setPath("/view/modifyForm.jsp");

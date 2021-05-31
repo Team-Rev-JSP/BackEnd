@@ -16,8 +16,8 @@ public class CardModifyAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         CardVO vo = new CardVO();
-        int id = 47;
-        vo.setId(id);
+        int idx = 47;
+        vo.setId(idx);
         vo.setName("김똥필");
         vo.setPhone("0102139210213");
         vo.setEmail("동팔동팔");
@@ -44,6 +44,7 @@ public class CardModifyAction implements Action {
 
         if(!isModifyChk) {
             request.setCharacterEncoding("UTF-8");
+            response.setContentType("text/html;charset=utf-8");
             PrintWriter out=response.getWriter();
             out.println("<script>");
             out.println("alert('명함수정에 실패하였습니다.');");

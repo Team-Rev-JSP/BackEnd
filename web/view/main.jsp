@@ -17,7 +17,8 @@
 <body>
         메인페이지 입니다.
         각각 받아오는 정보는 <br>
-        <%request.getAttribute("lists");%> <br>
+        <%Object s = request.getAttribute("lists");%> <br>
+        <% System.out.print(s);%>
         값은 이겁니다<%=list.get(0).getName()%>
         값은 이겁니다<%=list.get(0).getEmail()%>
         값은 이겁니다<%=list.get(0).getCompany()%>

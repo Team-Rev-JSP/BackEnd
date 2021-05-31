@@ -6,12 +6,12 @@ import java.sql.Connection;
 import static db.DbBridge.*;
 
 public class CardModifyService {
-    public CardVO ModifyView(int id) {
+    public CardVO ModifyView(int idx) {
         CardDAO cardDAO = CardDAO.getInstance();
         CardVO param = new CardVO();
         Connection con = getConnection();
         cardDAO.setConnection(con);
-        param = cardDAO.findOneCard(id);
+        param = cardDAO.findOneCard(idx);
         commit(con);
         close(con);
         return param;

@@ -64,7 +64,7 @@ public class DbBridge {
     public static void commit(Connection con) {
             try {
                 con.commit();
-                System.out.println("commit success");
+                System.out.println("\ncommit success");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -73,7 +73,7 @@ public class DbBridge {
     public static void rollback(Connection con) {
         try {
             con.rollback();
-            System.out.println("rollback success");
+            System.out.println("\nrollback success");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -17,7 +17,7 @@ public class CardDeleteAction implements Action {
         int id = Integer.parseInt(ids);
         String password = request.getParameter("user_password");
         */
-        int id = 42;
+        int idx = 42;
         ActionForward forward = new ActionForward();
         CardDeleteService cardDeleteService = new CardDeleteService();
       /*  boolean isWriteDelete = cardDeleteService.isChkCardUser(id);  패스워드까지 넘겨야함 자기만 자기 명함을 지울수있게 체크
@@ -31,10 +31,11 @@ public class CardDeleteAction implements Action {
             out.println("</script>");
             out.close();
         }else*/
-            boolean isDeleteChk = cardDeleteService.deletecard(id);
+            boolean isDeleteChk = cardDeleteService.deletecard(idx);
             System.out.println("isChecke" + isDeleteChk);
             if(!isDeleteChk) {
                 response.setContentType("text/html;charset=UTF-8");
+                response.setContentType("text/html;charset=utf-8");
                 PrintWriter out=response.getWriter();
                 out.println("<script>");
                 out.println("alert('삭제에 실패하였습니다.');");

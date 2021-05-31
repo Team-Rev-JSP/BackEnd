@@ -15,13 +15,14 @@ public class CardListAction implements Action {
         ArrayList<CardVO> list = new ArrayList<CardVO>();
         int page = 1;
         int limit = 9;
+        int idx = 1;
 //        if(request.getParameter("page")!= null){
 //            page = Integer.parseInt(request.getParameter("page"));
 //        }
 
         CardListService cardListService = new CardListService();
         int totalCount = cardListService.getTotalpage();
-        list = cardListService.getLists(page, limit);
+        list = cardListService.getLists(page, limit, idx);
         ActionForward forward = new ActionForward();
         request.setAttribute("lists", list);
         request.setAttribute("totalpage", totalCount);

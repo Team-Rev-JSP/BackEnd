@@ -1,6 +1,7 @@
 package dao;
 
 import static db.DbBridge.*;
+
 import vo.CardVO;
 
 import javax.sql.DataSource;
@@ -19,25 +20,26 @@ public class CardDAO {
         // TODO Auto-generated constructor stub
     }
 
-    public static CardDAO getInstance(){
-        if(cardDAO == null){
+    public static CardDAO getInstance() {
+        if (cardDAO == null) {
             cardDAO = new CardDAO();
         }
         return cardDAO;
     }
 
-    public void setConnection(Connection con){
+    public void setConnection(Connection con) {
         this.con = con;
     }
+
     /* ---------------------INSERT---------------------------
      사용자가 등록을 할때 DB에 등록된 값을 삽입해주는 메서드 */
-    public int insertCard(CardVO param){
+    public int insertCard(CardVO param) {
         int result = 0;
         PreparedStatement ps = null;
 
         String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, photo_path) VALUES (?,?,?,?,?,?,?,?,?)";
 
-        try{
+        try {
             ps = con.prepareStatement(sql);
             ps.setString(1, param.getName());
             ps.setString(2, param.getPhone());
@@ -50,9 +52,9 @@ public class CardDAO {
             ps.setString(9, param.getPhoto_path());
             result = ps.executeUpdate();
             System.out.println("check");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             close(ps);
         }
         return result;
@@ -60,19 +62,19 @@ public class CardDAO {
     /* ---------------------SELECT---------------------------
         한개의 명함만 가져오고 싶을때 사용하는 메서드  */
 
-    public CardVO findOneCard(int id){
+    public CardVO findOneCard(int idx) {
         CardVO vo = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM card WHERE id = ?";
+        String sql = "SELECT * FROM card WHERE idx = ?";
 
-        try{
+        try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idx);
             rs = ps.executeQuery();
 
-            if(rs.next()){
+            if (rs.next()) {
                 vo = new CardVO();
                 vo.setName(rs.getString("name"));
                 vo.setPhone(rs.getString("phone"));
@@ -83,12 +85,10 @@ public class CardDAO {
                 vo.setUrl(rs.getString("url"));
                 vo.setCompany(rs.getString("company"));
                 vo.setPhoto_path(rs.getString("photo_path"));
-                System.out.println("DAO접근");
             }
-
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             close(ps);
             close(rs);
         }
@@ -106,9 +106,7 @@ public class CardDAO {
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            System.out.println("하이");
-
-            if(rs.next()) {
+            if (rs.next()) {
                 count = rs.getInt(1);
             }
         } catch (Exception e) {
@@ -120,8 +118,8 @@ public class CardDAO {
         return count;
     }
 
-// 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
-    public List<CardVO> getCardList(int page, int limit){
+    // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
+    public List<CardVO> getCardList(int page, int limit, int idx) {
         List<CardVO> list = new ArrayList();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -129,16 +127,18 @@ public class CardDAO {
         int startrow = (page - 1) * 10;
         System.out.println(startrow);
 
-        String sql = "SELECT * FROM card ORDER BY id DESC limit ?, 9";
+        String sql = "SELECT * FROM card WHERE idx = ? ORDER BY idx DESC limit ?, 9";
 
-        try{
+        try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, startrow);
+            ps.setInt(2, idx);
             rs = ps.executeQuery();
+            System.out.println("DAO 접근");
 
-            while(rs.next()){
+            while (rs.next()) {
                 card = new CardVO();
-                card.setId(rs.getInt("id"));
+                card.setId(rs.getInt("idx"));
                 card.setName(rs.getString("name"));
                 card.setPhone(rs.getString("phone"));
                 card.setEmail(rs.getString("email"));
@@ -151,14 +151,15 @@ public class CardDAO {
                 list.add(card);
             }
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             close(ps);
             close(rs);
         }
         return list;
     }
+    /*
     // 명함 삭제하는 사용자가 본인 자신인지 체크하는 메서드
     public boolean isChkCardWriter(int id, String password) {
         PreparedStatement ps = null;
@@ -181,17 +182,18 @@ public class CardDAO {
         }
         return chk;
     }
+    */
 
     /* ---------------------UPDATE---------------------------
 //     사용자가 수정을 필요로할때 수정 할 수 있도록 해주는 메서드 */
-    public int ModifyCard(CardVO vo){
+    public int ModifyCard(CardVO vo) {
         PreparedStatement ps = null;
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
-                    +"address=?, fax=?, url=?, company=?, photo_path=? WHERE id = ?";
+                + "address=?, fax=?, url=?, company=?, photo_path=? WHERE id = ?";
 
-        try{
+        try {
             ps = con.prepareStatement(sql);
             ps.setString(1, vo.getName());
             ps.setString(2, vo.getPhone());
@@ -205,30 +207,29 @@ public class CardDAO {
             ps.setInt(10, vo.getId());
             result = ps.executeUpdate();
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             close(ps);
         }
         return result;
     }
+
     /* ---------------------DELETE---------------------------
             사용자가 명함을 삭제할때 필요한 메서드 */
-    public int deleteCard(int id){
+    public int deleteCard(int idx) {
         int result = 0;
         PreparedStatement ps = null;
 
-        String sql = "DELETE FROM card WHERE id = ?";
+        String sql = "DELETE FROM card WHERE idx = ?";
 
-        try{
+        try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idx);
             result = ps.executeUpdate();
-            System.out.println("DAO도착");
-
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             close(ps);
         }
         return result;

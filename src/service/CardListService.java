@@ -19,12 +19,12 @@ public class CardListService {
         return count;
     }
 
-    public ArrayList<CardVO> getLists(int page, int limit) throws Exception {
+    public ArrayList<CardVO> getLists(int page, int limit, int idx) throws Exception {
         ArrayList<CardVO> list = null;
         Connection con = getConnection();
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
-        list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit);
+        list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit, idx);
         close(con);
         return list;
     }
