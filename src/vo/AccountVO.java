@@ -11,6 +11,6 @@ public class AccountVO {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getAuthority() { return nickname; }
-    public void setAuthority(String authority) { this.nickname = authority; }
+    public String getNickname() { return nickname; }
+    public void setNickname(String authority) { this.nickname = authority; }
 }

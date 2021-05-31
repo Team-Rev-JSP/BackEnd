@@ -9,7 +9,7 @@ import dao.AccountDAO;
 import java.sql.Connection;
 import vo.AccountVO;
 
-public class JoinService {
+public class LoginService {
 
     public boolean registAccount(AccountVO param) throws Exception{
 
@@ -17,7 +17,7 @@ public class JoinService {
         AccountDAO accountDAO = AccountDAO.getInstance();
         Connection con = getConnection();
         accountDAO.setConnection(con);
-        int insertCount = accountDAO.insertAccount(param);
+        int insertCount = accountDAO.getAccount(param);
 
         if(insertCount > 0){
             commit(con);
