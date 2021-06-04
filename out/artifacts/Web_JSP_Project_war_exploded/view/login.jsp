@@ -13,19 +13,11 @@
 <body>
 <h5><span>로그인</span> 페이지입니다.</h5>
 <hr />
-<form action="cardAdd.bo" method="post">
+<form action="login.bo" method="post">
     <input type="text" placeholder="id" name="id" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="name" name="name" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="phone" name="phone" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="email" name="email" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="position" name="position" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="address" name="address" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="fax" name="fax" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="url" name="url" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="company" name="company" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder="photo_path" name="photo_path" required style="height:30px; width: 380px" /><br />
+    <input type="text" placeholder="password" name="password" required style="height:30px; width: 380px" /><br />
     <input type="submit" value="로그인" class="login" />
-    <button onclick="location.href='home.do';" class="login" >HOME</button>
+    <input type="button" value="회원가입" onclick="location.href='/join_page.bo';" class="submit" />
 </form>
 </body>
 </html>

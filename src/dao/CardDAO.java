@@ -127,14 +127,12 @@ public class CardDAO {
         int startrow = (page - 1) * 10;
         System.out.println(startrow);
 
-        String sql = "SELECT * FROM card WHERE idx = ? ORDER BY idx DESC limit ?, 9";
+        String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit 6, 9";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, startrow);
-            ps.setInt(2, idx);
+            ps.setString(1, "test");
             rs = ps.executeQuery();
-            System.out.println("DAO 접근");
 
             while (rs.next()) {
                 card = new CardVO();

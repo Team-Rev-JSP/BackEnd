@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "*.bo")
@@ -89,7 +90,8 @@ public class WebController extends HttpServlet {
             forward = new ActionForward();
             forward.setPath("/view/login.jsp");
         } else if (command.equals("/login.bo")) {
-            action = new LoginAction();
+            HttpSession session = request.getSession(true);
+            action = new LoginAction(session);
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {

@@ -32,14 +32,17 @@ public class AccountDAO {
     public int insertAccount(AccountVO param){ // 회원가입
         int result = 0;
         PreparedStatement ps = null;
+        String id = param.getId();
+        String password = param.getPassword();
+        String nickname = param.getNickname();
 
         String sql = "INSERT INTO account (id, password, nickname) VALUES (?,?,?)";
 
         try{
             ps = con.prepareStatement(sql);
-            ps.setString(1, param.getId());
-            ps.setString(2, param.getPassword());
-            ps.setString(3, param.getNickname());
+            ps.setString(1, id);
+            ps.setString(2, password);
+            ps.setString(3, nickname);
             result = ps.executeUpdate();
         } catch (Exception e){
             e.printStackTrace();
