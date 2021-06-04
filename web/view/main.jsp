@@ -8,6 +8,7 @@
 --%>
 <%
     ArrayList<CardVO> list = (ArrayList<CardVO>)request.getAttribute("lists");
+    String id = (String)session.getAttribute("id");
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -17,10 +18,6 @@
 <body>
         메인페이지 입니다.
         각각 받아오는 정보는 <br>
-<%--        <%request.getAttribute("lists");%> <br>--%>
-<%--        값은 이겁니다<%=list.get(0).getName()%>--%>
-<%--        값은 이겁니다<%=list.get(0).getEmail()%>--%>
-<%--        값은 이겁니다<%=list.get(0).getCompany()%>--%>
-<%--        총 페이지는 <%=request.getAttribute("totalpage")%>--%>
+        ${id}
 </body>
 </html>

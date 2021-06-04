@@ -1,6 +1,7 @@
 package controller;
 
 import action.*;
+import javax.servlet.http.HttpSession;
 import vo.ActionForward;
 
 import javax.servlet.RequestDispatcher;
@@ -28,6 +29,7 @@ public class WebController extends HttpServlet {
 
     if (command.equals("/main_page.bo")) { //메인 페이지
       forward = new ActionForward();
+
       forward.setPath("/view/main.jsp");
     } else if (command.equals("/cardAdd_page.bo")) { // 명함 등록 페이지 login으로 알면됨
       forward = new ActionForward();
@@ -83,7 +85,8 @@ public class WebController extends HttpServlet {
       forward = new ActionForward();
       forward.setPath("/view/login.jsp");
     } else if (command.equals("/login.bo")) {
-      action = new LoginAction();
+      HttpSession session = request.getSession(true);
+      action = new LoginAction(session);
       try {
         forward = action.execute(request, response);
       } catch (Exception e) {

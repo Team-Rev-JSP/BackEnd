@@ -18,7 +18,7 @@
     <input type="text" placeholder="id" name="id" required style="height:30px; width: 380px" /><br />
     <input type="text" placeholder="password" name="password" required style="height:30px; width: 380px" /><br />
     <input type="submit" value="로그인" class="login" />
-    <button onclick="location.href='/join_page.bo';" class="login" >회원가입</button>
+    <input type="button" value="회원가입" onclick="location.href='/join_page.bo';" class="submit" />
 </form>
 </body>
 </html>
