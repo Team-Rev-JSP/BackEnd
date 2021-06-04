@@ -15,5 +15,6 @@
 </head>
 <body>
     <div>아이디<%=card.getId()%></div>
+    <input type="button" value="삭제" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
 </body>
 </html>

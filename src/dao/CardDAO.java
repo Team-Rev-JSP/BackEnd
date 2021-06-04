@@ -195,7 +195,7 @@ public class CardDAO {
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
-                + "address=?, fax=?, url=?, company=?, photo_path=? WHERE id = ?";
+                + "address=?, fax=?, url=?, company=?, photo_path=? WHERE idx = ?";
 
         try {
             ps = con.prepareStatement(sql);
