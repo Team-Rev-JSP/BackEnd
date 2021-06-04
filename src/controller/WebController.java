@@ -99,12 +99,12 @@ public class WebController extends HttpServlet {
 //            }
         }
         else if(command.equals("/DeleteProcess.bo")){
-//            action = new DeleteAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new DeleteAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         if (forward != null) {
