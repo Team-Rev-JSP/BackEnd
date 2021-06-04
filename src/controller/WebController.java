@@ -63,16 +63,16 @@ public class WebController extends HttpServlet {
             }
         }
         else if(command.equals("/Create.bo")){
-//            forward = new ActionForward();
-//            forward.setPath("/view/CreateForm.jsp");
+            forward = new ActionForward();
+            forward.setPath("/view/CreateForm.jsp");
         }
         else if(command.equals("/CreateProcess.bo")){
-//            action = new CreateAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new CreateAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         if(command.equals("/Detail.bo")){
 //            action = new DetailAction();
