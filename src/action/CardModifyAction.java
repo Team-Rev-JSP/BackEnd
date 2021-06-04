@@ -52,7 +52,7 @@ public class CardModifyAction implements Action {
             out.println("</script>");
             out.close();
         } else {
-            forward.setPath("/view/login.jsp");
+            forward.setPath("/view/Login.jsp");
         }
         return forward;
     }

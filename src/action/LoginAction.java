@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import service.JoinService;
 import service.LoginService;
 import vo.AccountVO;
 import vo.ActionForward;
@@ -37,7 +36,7 @@ public class LoginAction implements Action {
         }else{
             session.setAttribute("id", vo.getId());
             forward.setRedirect(true);
-            forward.setPath("main_page.bo");
+            forward.setPath("Main.bo");
         }
         return forward;
     }
