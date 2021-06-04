@@ -100,4 +100,21 @@ public class CardVO {
     public void setUid(String uid) {
         this.uid = uid;
     }
+
+    @Override
+    public String toString() {
+        return "CardVO{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", phone='" + phone + '\'' +
+            ", email='" + email + '\'' +
+            ", position='" + position + '\'' +
+            ", address='" + address + '\'' +
+            ", fax='" + fax + '\'' +
+            ", url='" + url + '\'' +
+            ", company='" + company + '\'' +
+            ", photo_path='" + photo_path + '\'' +
+            ", uid='" + uid + '\'' +
+            '}';
+    }
 }

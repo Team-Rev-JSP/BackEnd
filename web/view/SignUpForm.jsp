@@ -13,7 +13,7 @@
 <body>
 <h5><span>회원가입</span> 페이지입니다.</h5>
 <hr />
-<form action="join.bo" method="post">
+<form action="SIgnUpProcess.bo" method="post">
     <table border=1>
         <tr>
             <td>

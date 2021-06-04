@@ -75,12 +75,12 @@ public class WebController extends HttpServlet {
             }
         }
         if(command.equals("/Detail.bo")){
-//            action = new DetailAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new DetailAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(command.equals("/Modify.bo")){
 //            action = new ModifyFormAction();

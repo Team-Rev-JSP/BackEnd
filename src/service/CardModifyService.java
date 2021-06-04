@@ -13,7 +13,7 @@ public class CardModifyService {
         cardDAO.setConnection(con);
         param = cardDAO.findOneCard(idx);
         commit(con);
-        close(con);
+//        close(con);
         return param;
     }
 
@@ -30,7 +30,7 @@ public class CardModifyService {
         } else {
             rollback(con);
         }
-        close(con);
+//        close(con);
         return modifychk;
     }
 }

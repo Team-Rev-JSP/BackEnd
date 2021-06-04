@@ -15,17 +15,17 @@ public class CardListService {
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
         count = cardDAO.getListCount();
-        close(con);
+//        close(con);
         return count;
     }
 
-    public ArrayList<CardVO> getLists(int page, int limit, int idx) throws Exception {
+    public ArrayList<CardVO> getLists(int page, int limit, String uid) throws Exception {
         ArrayList<CardVO> list = null;
         Connection con = getConnection();
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
-        list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit, idx);
-        close(con);
+        list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit, uid);
+//        close(con);
         return list;
     }
 }

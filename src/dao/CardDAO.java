@@ -70,12 +70,14 @@ public class CardDAO {
         String sql = "SELECT * FROM card WHERE idx = ?";
 
         try {
+            System.out.println("findOneCard idx : " + idx);
             ps = con.prepareStatement(sql);
             ps.setInt(1, idx);
             rs = ps.executeQuery();
 
             if (rs.next()) {
                 vo = new CardVO();
+                vo.setId(rs.getInt("idx"));
                 vo.setName(rs.getString("name"));
                 vo.setPhone(rs.getString("phone"));
                 vo.setEmail(rs.getString("email"));
@@ -85,6 +87,7 @@ public class CardDAO {
                 vo.setUrl(rs.getString("url"));
                 vo.setCompany(rs.getString("company"));
                 vo.setPhoto_path(rs.getString("photo_path"));
+                vo.setUid(rs.getString("uid"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,7 +122,7 @@ public class CardDAO {
     }
 
     // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
-    public List<CardVO> getCardList(int page, int limit, int idx) {
+    public List<CardVO> getCardList(int page, int limit, String  uid) {
         List<CardVO> list = new ArrayList();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -127,11 +130,13 @@ public class CardDAO {
         int startrow = (page - 1) * 10;
         System.out.println(startrow);
 
-        String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit 6, 9";
+        String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit ?, ?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, "test");
+            ps.setString(1, uid);
+            ps.setInt(2, page);
+            ps.setInt(3, limit);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -232,4 +237,6 @@ public class CardDAO {
         }
         return result;
     }
+
+
 }

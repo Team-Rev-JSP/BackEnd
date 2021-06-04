@@ -13,15 +13,13 @@ import javax.servlet.http.HttpSession;
 public class DetailAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
-        HttpSession hs = request.getSession();
 
-        //        int id = Integer.parseInt(request.getParameter("id"));
-        int idx = 1;
+        int idx = Integer.parseInt( request.getParameter("idx") ) ;
         CardModifyService cardModifyViewService = new CardModifyService();
-        CardVO param = cardModifyViewService.ModifyView(idx);
-        request.setAttribute("detailList", param);
+        CardVO card = cardModifyViewService.ModifyView(idx);
+        request.setAttribute("card", card);
         ActionForward forward = new ActionForward();
-        forward.setPath("/view/detail.jsp");
+        forward.setPath("/view/Detail.jsp");
         return forward;
     }
 }

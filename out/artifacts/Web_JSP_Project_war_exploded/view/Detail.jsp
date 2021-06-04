@@ -6,14 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% CardVO card = (CardVO)request.getAttribute("card");
+    System.out.println(card.toString());
+%>
 <html>
 <head>
     <title>Detail 화면</title>
 </head>
 <body>
-    <% CardVO list = (CardVO)request.getAttribute("detailList"); %>
-    <% System.out.println(list); %>
-    이름<%=list.getName()%> <br>
-    이메일<%=list.getEmail()%>
+    <div>아이디<%=card.getId()%></div>
 </body>
 </html>
