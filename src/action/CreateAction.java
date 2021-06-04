@@ -8,6 +8,7 @@ import vo.CardVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
 public class CreateAction implements Action {
@@ -16,6 +17,7 @@ public class CreateAction implements Action {
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         CardVO vo = new CardVO();
         ActionForward forward = new ActionForward();
+        HttpSession session = request.getSession();
         vo.setName(request.getParameter("name"));
         vo.setPhone(request.getParameter("phone"));
         vo.setEmail(request.getParameter("email"));
@@ -25,6 +27,7 @@ public class CreateAction implements Action {
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
         vo.setPhoto_path(request.getParameter("photo_path"));
+        vo.setUid((String)session.getAttribute("id"));
         CardAddService cardAddService = new CardAddService();
         boolean isWriteSuccess = cardAddService.registcard(vo);
 
@@ -39,7 +42,7 @@ public class CreateAction implements Action {
             out.close();
         }else{
             forward.setRedirect(true);
-            forward.setPath("cardLists.bo");
+            forward.setPath("Main.bo");
         }
         return forward;
     }

@@ -21,6 +21,7 @@
 <body>
     메인페이지 입니다.
     각각 받아오는 정보는 <br>
+    <input type="button" value="등록" onclick="location.href='Create.bo'">
     ${id}
     <%for(int i = 0; i < list.size() ; i++){
     %>

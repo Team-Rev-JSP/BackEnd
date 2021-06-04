@@ -37,7 +37,7 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, photo_path) VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, photo_path, uid) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try {
             ps = con.prepareStatement(sql);
@@ -50,6 +50,7 @@ public class CardDAO {
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
             ps.setString(9, param.getPhoto_path());
+            ps.setString(10, param.getUid());
             result = ps.executeUpdate();
             System.out.println("check");
         } catch (Exception e) {
