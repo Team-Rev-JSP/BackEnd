@@ -123,19 +123,17 @@ public class CardDAO {
 
     // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
     public List<CardVO> getCardList(int page, int limit, String  uid) {
-        List<CardVO> list = new ArrayList();
+        List<CardVO> list = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         CardVO card = null;
-        int startrow = (page - 1) * 10;
-        System.out.println(startrow);
 
         String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit ?, ?";
 
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, uid);
-            ps.setInt(2, page);
+            ps.setInt(2, page*limit);
             ps.setInt(3, limit);
             rs = ps.executeQuery();
 

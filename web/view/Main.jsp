@@ -16,15 +16,32 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main</title>
+    <title>CARDIS</title>
+    <link rel="stylesheet" href="../css/Main.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/bab20e0e73.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    메인페이지 입니다.
-    각각 받아오는 정보는 <br>
-    ${id}
-    <%for(int i = 0; i < list.size() ; i++){
-    %>
-        <a href="Detail.bo?idx=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a>
-    <%}%>
+<div class="body__container">
+    <header class="header">
+        <div class="inner">
+            ${id}님 반갑습니다.
+        </div>
+    </header>
+
+    <section class="card_list">
+        <div class="inner">
+            <div class="content">
+                <%for(int i = 0; i < list.size() ; i++){
+                %>
+                <div class="card">
+                    <a href="Detail.bo?idx=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </section>
+</div>
 </body>
 </html>
