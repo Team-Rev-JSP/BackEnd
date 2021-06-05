@@ -37,7 +37,11 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
+<<<<<<< Updated upstream
         String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, photo_path) VALUES (?,?,?,?,?,?,?,?,?)";
+=======
+        String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, uid) VALUES (?,?,?,?,?,?,?,?,?)";
+>>>>>>> Stashed changes
 
         try {
             ps = con.prepareStatement(sql);
@@ -49,7 +53,11 @@ public class CardDAO {
             ps.setString(6, param.getFax());
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
+<<<<<<< Updated upstream
             ps.setString(9, param.getPhoto_path());
+=======
+            ps.setString(9, param.getUid());
+>>>>>>> Stashed changes
             result = ps.executeUpdate();
             System.out.println("check");
         } catch (Exception e) {
@@ -148,7 +156,6 @@ public class CardDAO {
                 card.setFax(rs.getString("fax"));
                 card.setUrl(rs.getString("url"));
                 card.setCompany(rs.getString("company"));
-                card.setPhoto_path(rs.getString("photo_path"));
                 list.add(card);
             }
 

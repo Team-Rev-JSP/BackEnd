@@ -15,5 +15,9 @@
 </head>
 <body>
     <div>아이디<%=card.getId()%></div>
+<<<<<<< Updated upstream
+=======
+    <input type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=request.getParameter("idx")%>'">
+>>>>>>> Stashed changes
 </body>
 </html>

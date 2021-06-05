@@ -24,7 +24,11 @@ public class CreateAction implements Action {
         vo.setFax(request.getParameter("fax"));
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
+<<<<<<< Updated upstream
         vo.setPhoto_path(request.getParameter("photo_path"));
+=======
+        vo.setUid((String)session.getAttribute("id"));
+>>>>>>> Stashed changes
         CardAddService cardAddService = new CardAddService();
         boolean isWriteSuccess = cardAddService.registcard(vo);
 
