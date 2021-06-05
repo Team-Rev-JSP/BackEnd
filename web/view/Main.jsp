@@ -1,6 +1,7 @@
 
 <%@ page import="vo.CardVO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="vo.PageInfo" %>
 <%--
   Created by IntelliJ IDEA.
   User: gooda
@@ -10,6 +11,8 @@
 --%>
 <%
     ArrayList<CardVO> list = (ArrayList<CardVO>)request.getAttribute("lists");
+    PageInfo pageInfo = (PageInfo) request.getAttribute("page_info");
+
     String id = (String)session.getAttribute("id");
 
 %>
@@ -37,40 +40,47 @@
                 <%for(int i = 0; i < list.size() ; i++){
                 %>
                 <a class="card" href="Detail.bo?idx=<%=list.get(i).getId()%>">
-                    <span>
-                        <%=list.get(i).getName()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getPosition()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getCompany()%>
-                    </span>
-
-                    <span>
-                        <%=list.get(i).getAddress()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getUrl()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getPhone()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getFax()%>
-                    </span>
-                    <span>
-                        <%=list.get(i).getEmail()%>
-                    </span>
+                    <div class="card_top">
+                        <div class="left">
+                            <div class="name">
+                                <%=list.get(i).getName()%>
+                            </div>
+                            <div class="postion">
+                                <%=list.get(i).getPosition()%>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="company">
+                                <%=list.get(i).getCompany()%>
+                            </div>
+                            <div class="address">
+                                <%=list.get(i).getAddress()%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card_bottom">
+                        <div class="fax">
+                            Fax. <%=list.get(i).getFax()%>
+                        </div>
+                        <div class="mobile">
+                            Mobile. <%=list.get(i).getPhone()%>
+                        </div>
+                        <div class="email">
+                            Email. <%=list.get(i).getEmail()%>
+                        </div>
+                        <div class="url">
+                            <%=list.get(i).getUrl()%>
+                        </div>
+                    </div>
                 </a>
                 <%}%>
             </div>
         </div>
     </section>
-<<<<<<< Updated upstream
-=======
+    <section class="pager">
+
+    </section>
     <input id="create_card" type="button" value="생성" onclick="location.href='Create.bo'">
->>>>>>> Stashed changes
 </div>
 </body>
 </html>

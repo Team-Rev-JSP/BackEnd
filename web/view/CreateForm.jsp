@@ -12,19 +12,6 @@
     <link rel="stylesheet" href="../css/Create.css"/>
 </head>
 <body>
-<<<<<<< Updated upstream:web/view/CreateForm..jsp
-        <input type="text" placeholder="id" name="name" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="phone" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="id" name="email" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="position" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="address" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="id" name="name" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="phone" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="id" name="email" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="position" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="address" required style="height:30px; width: 380px" /><br />
-        <input type="submit" value="로그인" class="login" />
-=======
 <div class="body__container">
         <form class="create_form" action="CreateProcess.bo" method="post">
                 <div class="card">
@@ -53,6 +40,5 @@
 
         </form>
 </div>
->>>>>>> Stashed changes:web/view/CreateForm.jsp
 </body>
 </html>

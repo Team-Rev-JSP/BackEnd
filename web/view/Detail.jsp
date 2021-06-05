@@ -11,13 +11,51 @@
 %>
 <html>
 <head>
-    <title>Detail 화면</title>
+    <title>CARDIS</title>
+    <link rel="stylesheet" href=../css/Detail.css />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 </head>
 <body>
-    <div>아이디<%=card.getId()%></div>
-<<<<<<< Updated upstream
-=======
-    <input type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=request.getParameter("idx")%>'">
->>>>>>> Stashed changes
+<div class="body__container">
+    <div class="card" >
+        <div class="card_top">
+            <div class="left">
+                <div class="name">
+                    <%=card.getName()%>
+                </div>
+                <div class="postion">
+                    <%=card.getPosition()%>
+                </div>
+            </div>
+            <div class="right">
+                <div class="company">
+                    <%=card.getCompany()%>
+                </div>
+                <div class="address">
+                    <%=card.getAddress()%>
+                </div>
+            </div>
+        </div>
+        <div class="card_bottom">
+            <div class="fax">
+                Fax. <%=card.getFax()%>
+            </div>
+            <div class="mobile">
+                Mobile. <%=card.getPhone()%>
+            </div>
+            <div class="email">
+                Email. <%=card.getEmail()%>
+            </div>
+            <div class="url">
+                <%=card.getUrl()%>
+            </div>
+        </div>
+    </div>
+    <div class="section_btn">
+        <input id="back" type="button" value="이전" onclick="location.href='/Main.bo'">
+        <input id="delete" type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=card.getId()%>'">
+        <input id="modify" type="button" value="수정" >
+    </div>
+</div>
 </body>
 </html>

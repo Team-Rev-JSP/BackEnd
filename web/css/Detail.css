@@ -1,35 +1,14 @@
 *{
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Noto Sans KR', sans-serif;
 }
-body__container{
-    position:relative;
-}
-.header .inner{
-    text-align: center;
-    height: 50px;
-    background-color: cornflowerblue;
-    color: white;
-    line-height: 50px;
-}
-
-.card_list{
+.body__container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
 }
 
-.card_list .inner .content{
-    width: 100%;
-    max-width: 1000px;
-    padding-top : 30px;
-    display: flex;
-    flex-wrap: wrap;
-    /*justify-content: space-between;*/
-}
-
-.card_list .inner .content .card {
+.card {
     box-sizing: border-box;
     width : 320px;
     height: 150px;
@@ -37,14 +16,10 @@ body__container{
     color: black;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     display: block;
-    margin-right: 20px;
     margin-bottom: 20px;
     padding: 12px;
 }
 
-.card_list .inner .content .card:nth-child(3n) {
-    margin-right: 0px;
-}
 .card_top{
     display: flex;
     margin-bottom: 31px;
@@ -84,15 +59,26 @@ body__container{
     font-size: 12px;
     margin-bottom: 3px;
 }
-#create_card{
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 52px;
-    height: 52px;
-    border-radius: 72px;
-    outline: none;
+.section_btn{
+    width: 320px;
+    text-align: right;
+}
+.section_btn input{
+    width: 65px;
+    height: 30px;
+    outline: 0px;
     border: 0px;
+}
+#back{
+    background: white;
+    border: 1px solid cornflowerblue;
+    color: cornflowerblue;
+}
+#delete{
+    background: cornflowerblue;
+    color: white;
+}
+#modify{
     background: cornflowerblue;
     color: white;
 }
