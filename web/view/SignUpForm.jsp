@@ -8,43 +8,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/Join.css" />
+    <title>Join</title>
 </head>
 <body>
-<h5><span>회원가입</span> 페이지입니다.</h5>
-<hr />
-<form action="SIgnUpProcess.bo" method="post">
-    <table border=1>
-        <tr>
-            <td>
-                <label for = "id">아이디 : </label>
-            </td>
-            <td>
-                <input type="text" id="id" name="id">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for = "pass">비밀번호 : </label>
-            </td>
-            <td>
-                <input type="password" id="pass" name="password">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for = "nickname">닉네임 : </label>
-            </td>
-            <td>
-                <input type="text" id="nickname" name="nickname">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="회원가입" class="join" />
-            </td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    <form id="form" class="form" action="SignUpProcess.bo" method="post">
+        <h2>Join With Us</h2>
+        <div class="form-control">
+            <label for="id">ID</label>
+            <input name="id" type="text" id="id" placeholder="Enter id">
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input name="password" type="password" id="password" placeholder="Enter Password">
+            <small>Error message</small>
+        </div>
+        <div class="form-control">
+            <label for="nickname">Nickname</label>
+            <input name="nickname" type="text" id="nickname" placeholder="Enter Nickname">
+            <small>Error message</small>
+        </div>
+        <div class="btn">
+            <button id="login" type="login" onclick="location.href='/Login.bo'">이전</button>
+            <button type="submit" onclick="submit()">등록</button>
+        </div>
+    </form>
+</div>
+
+<script src="../js/Join.js">
+
+    function submit() {
+        $('#form').submit();
+    }
+</script>
 </body>
 </html>
