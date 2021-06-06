@@ -7,11 +7,10 @@ import java.sql.*;
 
 public class DbBridge {
 
-  static Connection con = null;
 
   public static Connection getConnection() {
 
-    if (con == null) {
+     Connection con = null;
       try {
         Context initCtx = new InitialContext();
         Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -22,7 +21,6 @@ public class DbBridge {
       } catch (Exception e) {
         e.printStackTrace();
       }
-    }
     return con;
   }
     /*

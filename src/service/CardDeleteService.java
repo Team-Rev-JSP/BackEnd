@@ -19,7 +19,7 @@ public class CardDeleteService {
         else{
             rollback(con);
         }
-//        close(con);
+        close(con);
         return isDeleteSuccess;
     }
 

@@ -15,7 +15,7 @@ public class CardListService {
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
         count = cardDAO.getListCount(uid);
-//        close(con);
+        close(con);
         return count;
     }
 
@@ -25,7 +25,7 @@ public class CardListService {
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
         list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit, uid);
-//        close(con);
+        close(con);
         return list;
     }
 }

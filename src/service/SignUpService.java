@@ -27,7 +27,7 @@ public class SignUpService {
         else{
             rollback(con);
         }
-//        close(con);
+        close(con);
         return isWriteSuccess;
     }
 }

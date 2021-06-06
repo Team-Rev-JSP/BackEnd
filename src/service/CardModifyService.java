@@ -30,7 +30,7 @@ public class CardModifyService {
         } else {
             rollback(con);
         }
-//        close(con);
+        close(con);
         return modifychk;
     }
 }
