@@ -1,6 +1,12 @@
 package action;
 
+<<<<<<< HEAD
 import service.DeleteService;
+=======
+import action.Action;
+import dao.CardDAO;
+import service.CardDeleteService;
+>>>>>>> teayeong
 import vo.ActionForward;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +17,7 @@ public class DeleteAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+<<<<<<< HEAD
 
         int idx = Integer.parseInt( request.getParameter("idx") ) ;
         ActionForward forward = new ActionForward();
@@ -18,6 +25,18 @@ public class DeleteAction implements Action {
         boolean isDeleteChk = deleteService.deleteCard(idx);
         if(!isDeleteChk) {
             response.setContentType("text/html;charset=UTF-8");
+=======
+        String ids = request.getParameter("idx");
+        int id = Integer.parseInt(ids);
+        ActionForward forward = new ActionForward();
+        CardDeleteService cardDeleteService = new CardDeleteService();
+
+        boolean isDeleteChk = cardDeleteService.deletecard(id);
+        System.out.println("isChecke" + isDeleteChk);
+        if(!isDeleteChk) {
+            response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=utf-8");
+>>>>>>> teayeong
             PrintWriter out=response.getWriter();
             out.println("<script>");
             out.println("alert('삭제에 실패하였습니다.');");
@@ -30,4 +49,8 @@ public class DeleteAction implements Action {
         }
         return forward;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> teayeong

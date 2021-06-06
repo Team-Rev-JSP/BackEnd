@@ -90,7 +90,11 @@ public class WebController extends HttpServlet {
             }
         }
         else if(command.equals("/Modify.bo")){
+<<<<<<< HEAD
             action = new ModifyFormAction();
+=======
+            action = new ModifyViewAction();
+>>>>>>> teayeong
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {

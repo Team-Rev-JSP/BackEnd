@@ -23,7 +23,7 @@ public class AddService {
         else{
             rollback(con);
         }
-//        close(con);
+        close(con);
         return isWriteSuccess;
     }
 }

@@ -29,6 +29,7 @@ public class AccountDAO {
     public void setConnection(Connection con){
         this.con = con;
     }
+
     public int insertAccount(AccountVO param){ // 회원가입
         int result = 0;
         PreparedStatement ps = null;
@@ -48,6 +49,7 @@ public class AccountDAO {
             e.printStackTrace();
         } finally{
             close(ps);
+            close(con);
         }
         return result;
     }
@@ -78,6 +80,7 @@ public class AccountDAO {
             e.printStackTrace();
         } finally{
             close(ps);
+            close(con);
         }
         return nickname;
     }

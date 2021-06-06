@@ -31,7 +31,7 @@ public class SignUpAction implements Action {
             out.close();
         }else{
             forward.setRedirect(true);
-            forward.setPath("Login.bo");
+            forward.setPath("/");
         }
         return forward;
     }

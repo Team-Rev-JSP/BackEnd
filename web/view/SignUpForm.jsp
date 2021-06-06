@@ -14,6 +14,7 @@
     <title>Join</title>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="container">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -79,5 +80,42 @@
 =======
 >>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 </script>
+=======
+<h5><span>회원가입</span> 페이지입니다.</h5>
+<hr />
+<form action="SignUpProcess.bo" method="post">
+    <table border=1>
+        <tr>
+            <td>
+                <label for = "id">아이디 : </label>
+            </td>
+            <td>
+                <input type="text" id="id" name="id">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for = "pass">비밀번호 : </label>
+            </td>
+            <td>
+                <input type="password" id="pass" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for = "nickname">닉네임 : </label>
+            </td>
+            <td>
+                <input type="text" id="nickname" name="nickname">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="회원가입" class="join" />
+            </td>
+        </tr>
+    </table>
+</form>
+>>>>>>> teayeong
 </body>
 </html>

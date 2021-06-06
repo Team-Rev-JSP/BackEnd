@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.body__container{
+    position:relative;
+    height: 100vh;
+}
+.header .inner{
+    text-align: center;
+    height: 50px;
+    background-color: cornflowerblue;
+    color: white;
+    line-height: 50px;
+}
+
+.card_list{
+    display: flex;
+    justify-content: center;
+}
+
+.card_list .inner .content{
+    width: 100%;
+    max-width: 1000px;
+    padding-top : 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+}
+
+.card_list .inner .content .card {
+    box-sizing: border-box;
+    width : 320px;
+    height: 150px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 12px;
+}
+
+.card_list .inner .content .card:nth-child(3n) {
+    margin-right: 0;
+}
+.card_top{
+    display: flex;
+    margin-bottom: 31px;
+    justify-content: space-between;
+}
+
+.card_top .left{
+    display: flex;
+    flex-direction: column;
+}
+
+.card_top .right{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.name{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.postion{
+    font-weight: 300;
+    font-size: 14px;
+    color:rgb(90, 90, 90);
+    padding-top: 3px;
+}
+
+.company{
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.address, .fax, .mobile, .email, .url{
+    font-weight: 300;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.pager_section{
+    display: flex;
+    justify-content: center;
+}
+
+.page_container{
+    display: flex;
+    justify-content: center;
+}
+
+.page_container a{
+    border-top: 1px solid cornflowerblue;
+    border-bottom: 1px solid cornflowerblue;
+    border-left: 1px solid cornflowerblue;
+    text-decoration: none;
+    color: cornflowerblue;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page_container .prv, .page_container .next{
+    width: 42px;
+    font-size: 14px;
+}
+.page_container a:last-child {
+    border-right: 1px solid cornflowerblue;
+}
+
+#create_card{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 52px;
+    height: 52px;
+    border-radius: 72px;
+    outline: none;
+    border: 0;
+    background: cornflowerblue;
+    color: white;
+}

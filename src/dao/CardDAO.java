@@ -36,6 +36,10 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> teayeong
         String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, uid) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -48,6 +52,10 @@ public class CardDAO {
             ps.setString(6, param.getFax());
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
+<<<<<<< HEAD
+=======
+
+>>>>>>> teayeong
             ps.setString(9, param.getUid());
             result = ps.executeUpdate();
             System.out.println("check");

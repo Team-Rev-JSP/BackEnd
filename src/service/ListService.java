@@ -8,14 +8,23 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD:src/service/ListService.java
 public class ListService {
     public int getTotalpage(String uid) throws Exception {
+=======
+public class CardListService {
+    public int getTotalItem(String uid) throws Exception {
+>>>>>>> teayeong:src/service/CardListService.java
         int count = 0;
         Connection con = getConnection();
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
         count = cardDAO.getListCount(uid);
+<<<<<<< HEAD:src/service/ListService.java
 //        close(con);
+=======
+        close(con);
+>>>>>>> teayeong:src/service/CardListService.java
         return count;
     }
 
@@ -25,7 +34,7 @@ public class ListService {
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
         list = (ArrayList<CardVO>) cardDAO.getCardList(page, limit, uid);
-//        close(con);
+        close(con);
         return list;
     }
 }

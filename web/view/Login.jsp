@@ -42,7 +42,10 @@
     <input type="text" placeholder="password" name="password" required style="height:30px; width: 380px" /><br />
     <input type="submit" value="로그인" class="login" />
     <input type="button" value="회원가입" onclick="location.href='/SignUp.bo';" class="submit" />
+<<<<<<< HEAD
     <%=session.getAttribute("id")%>
+=======
+>>>>>>> teayeong
 </form>
 >>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 </body>

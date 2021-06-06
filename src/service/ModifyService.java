@@ -5,8 +5,13 @@ import vo.CardVO;
 import java.sql.Connection;
 import static db.DbBridge.*;
 
+<<<<<<< HEAD:src/service/ModifyService.java
 public class ModifyService {
     public CardVO ModifyView(int idx) {
+=======
+public class CardModifyService {
+    public CardVO ModifyCard(int idx) {
+>>>>>>> teayeong:src/service/CardModifyService.java
         CardDAO cardDAO = CardDAO.getInstance();
         CardVO param = new CardVO();
         Connection con = getConnection();
@@ -30,7 +35,7 @@ public class ModifyService {
         } else {
             rollback(con);
         }
-//        close(con);
+        close(con);
         return modifychk;
     }
 }
