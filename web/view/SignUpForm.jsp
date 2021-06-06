@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-    <form id="form" class="form" action="SignUpProcess.bo" method="post">
+    <form id="form" class="form" method="post" action="SignUpProcess.bo" onsubmit="return false">
         <h2>Join With Us</h2>
         <div class="form-control">
             <label for="id">ID</label>
@@ -34,16 +34,18 @@
         </div>
         <div class="btn">
             <button id="login" type="login" onclick="location.href='/Login.bo'">이전</button>
-            <button type="submit" onclick="submit()">등록</button>
+            <button id="join" type="join" onclick="(e) => join(e)">등록</button>
         </div>
     </form>
 </div>
 
-<script src="../js/Join.js">
+<script src="../js/Join.js" defer>
 
+    /*
+    onclick="submit()
     function submit() {
         $('#form').submit();
-    }
+    }*/
 </script>
 </body>
 </html>
