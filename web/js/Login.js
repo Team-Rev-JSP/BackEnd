@@ -25,7 +25,10 @@ function checkRequired(inputArr) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 // Check input length
 function checkLength(input, min, max) {
     if (input.value.length < min) {
@@ -43,6 +46,9 @@ function checkLength(input, min, max) {
     }
 }
 
+<<<<<<< HEAD
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
+=======
 >>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 // Get fieldname
 function getFieldName(input) {
@@ -52,8 +58,13 @@ function getFieldName(input) {
 // Event listeners
 function login(e) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     e.preventDefault();
 
+=======
+    console.log("call");
+    e.preventDefault()
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 =======
     console.log("call");
     e.preventDefault()

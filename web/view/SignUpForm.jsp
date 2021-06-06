@@ -16,7 +16,11 @@
 <body>
 <div class="container">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <form id="form" class="form" method="post" action="SignUpProcess.bo" onsubmit="return false">
+=======
+    <form id="form" class="form" action="SignUpProcess.bo" method="post">
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 =======
     <form id="form" class="form" action="SignUpProcess.bo" method="post">
 >>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
@@ -39,7 +43,12 @@
         <div class="btn">
             <button id="login" type="login" onclick="location.href='/Login.bo'">이전</button>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <button id="join" type="join" onclick="(e) => join(e)">등록</button>
+=======
+            <button onclick="submit()">등록</button>
+<%--            <input type="submit" value="등록">--%>
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 =======
             <button onclick="submit()">등록</button>
 <%--            <input type="submit" value="등록">--%>
@@ -49,6 +58,7 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script src="../js/Join.js" defer>
 
     /*
@@ -57,11 +67,16 @@
         $('#form').submit();
     }*/
 =======
+=======
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 <script src="../js/Join.js">
 
     function submit() {
         $('#form').submit();
     }
+<<<<<<< HEAD
+>>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
+=======
 >>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 </script>
 </body>
