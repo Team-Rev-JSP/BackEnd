@@ -5,7 +5,7 @@ import vo.CardVO;
 import java.sql.Connection;
 import static db.DbBridge.*;
 
-public class CardAddService {
+public class AddService {
 
     public boolean registcard(CardVO param) throws Exception{
         // TODO Auto-generated method stub
@@ -23,7 +23,7 @@ public class CardAddService {
         else{
             rollback(con);
         }
-//        close(con);
+        close(con);
         return isWriteSuccess;
     }
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardDAO {
-    DataSource ds;
     Connection con;
     private static CardDAO cardDAO;
 
@@ -37,6 +36,13 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> teayeong
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
         String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, uid) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -49,6 +55,13 @@ public class CardDAO {
             ps.setString(6, param.getFax());
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> teayeong
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
             ps.setString(9, param.getUid());
             result = ps.executeUpdate();
         } catch (Exception e) {
@@ -69,7 +82,6 @@ public class CardDAO {
         String sql = "SELECT * FROM card WHERE idx = ?";
 
         try {
-            System.out.println("findOneCard idx : " + idx);
             ps = con.prepareStatement(sql);
             ps.setInt(1, idx);
             rs = ps.executeQuery();
@@ -168,7 +180,11 @@ public class CardDAO {
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
+<<<<<<< HEAD
                 + "address=?, fax=?, url=?, company=?, WHERE idx = ?";
+=======
+                + "address=?, fax=?, url=?, company=? WHERE idx = ?";
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
 
         try {
             ps = con.prepareStatement(sql);

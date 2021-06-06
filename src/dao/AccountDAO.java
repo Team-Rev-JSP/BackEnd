@@ -29,6 +29,7 @@ public class AccountDAO {
     public void setConnection(Connection con){
         this.con = con;
     }
+
     public int insertAccount(AccountVO param){ // 회원가입
         int result = 0;
         PreparedStatement ps = null;
@@ -48,10 +49,15 @@ public class AccountDAO {
             e.printStackTrace();
         } finally{
             close(ps);
+            close(con);
         }
         return result;
     }
     public String getAccount(AccountVO param){ // 로그인
+<<<<<<< HEAD
+=======
+        int result = 0;
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
         ResultSet rs;
         PreparedStatement ps = null;
         String id = param.getId();
@@ -76,6 +82,7 @@ public class AccountDAO {
             e.printStackTrace();
         } finally{
             close(ps);
+            close(con);
         }
         return nickname;
     }

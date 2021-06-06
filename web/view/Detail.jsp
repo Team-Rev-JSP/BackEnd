@@ -7,14 +7,67 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% CardVO card = (CardVO)request.getAttribute("card");
+    int prvPage = (int)request.getAttribute("page");
     System.out.println(card.toString());
 %>
 <html>
 <head>
-    <title>Detail 화면</title>
+    <title>CARDIS</title>
+    <link rel="stylesheet" href=../css/Detail.css />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 </head>
 <body>
+<<<<<<< HEAD
     <div>아이디<%=card.getId()%></div>
     <input type="button" value="삭제" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
+=======
+<<<<<<< HEAD
+    <div>아이디<%=card.getId()%></div>
+    <input type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
+    <input type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=request.getParameter("idx")%>'">
+=======
+<div class="body__container">
+    <div class="card" >
+        <div class="card_top">
+            <div class="left">
+                <div class="name">
+                    <%=card.getName()%>
+                </div>
+                <div class="postion">
+                    <%=card.getPosition()%>
+                </div>
+            </div>
+            <div class="right">
+                <div class="company">
+                    <%=card.getCompany()%>
+                </div>
+                <div class="address">
+                    <%=card.getAddress()%>
+                </div>
+            </div>
+        </div>
+        <div class="card_bottom">
+            <div class="fax">
+                Fax. <%=card.getFax()%>
+            </div>
+            <div class="mobile">
+                Mobile. <%=card.getPhone()%>
+            </div>
+            <div class="email">
+                Email. <%=card.getEmail()%>
+            </div>
+            <div class="url">
+                <%=card.getUrl()%>
+            </div>
+        </div>
+    </div>
+    <div class="section_btn">
+        <input id="back" type="button" value="이전" onclick="location.href='/Main.bo?page=<%=prvPage%>'">
+        <input id="delete" type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=card.getId()%>'">
+        <input id="modify" type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=card.getId()%>&page=<%=prvPage%>'">
+    </div>
+</div>
+>>>>>>> teayeong
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
 </body>
 </html>

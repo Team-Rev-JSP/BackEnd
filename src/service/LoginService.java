@@ -26,7 +26,15 @@ public class LoginService {
         else{
             rollback(con);
         }
+<<<<<<< HEAD
 //        close(con);
         return NickChk;
+<<<<<<< HEAD
+=======
+=======
+        close(con);
+        return isWriteSuccess;
+>>>>>>> teayeong
+>>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
     }
 }
