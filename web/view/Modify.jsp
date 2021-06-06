@@ -26,7 +26,6 @@
     <input type="text" placeholder=<%=card.getFax()%> name="fax" required style="height:30px; width: 380px" /><br />
     <input type="text" placeholder=<%=card.getUrl()%> name="url" required style="height:30px; width: 380px" /><br />
     <input type="text" placeholder=<%=card.getCompany()%> name="company" required style="height:30px; width: 380px" /><br />
-    <input type="text" placeholder=<%=card.getPhoto_path()%> name="photo_path" required style="height:30px; width: 380px" /><br />
     <input type="submit" value="저장" class="login" />
 </form>
 </body>

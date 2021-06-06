@@ -51,14 +51,15 @@ public class AccountDAO {
         }
         return result;
     }
-    public int getAccount(AccountVO param){ // 로그인
+    public String getAccount(AccountVO param){ // 로그인
         int result = 0;
         ResultSet rs;
         PreparedStatement ps = null;
         String id = param.getId();
         String password = param.getPassword();
+        String nickname = "";
 
-        String sql = "SELECT password from account WHERE id = ?";
+        String sql = "SELECT password, nickname from account WHERE id = ?";
 
         try{
             String check = "";
@@ -67,6 +68,7 @@ public class AccountDAO {
             rs = ps.executeQuery();
             while(rs.next()) {
                 check = rs.getString(1);
+                nickname = rs.getString(2);
             }
             if(password.equals(check)) {
                 System.out.print("login success");
@@ -77,7 +79,7 @@ public class AccountDAO {
         } finally{
             close(ps);
         }
-        return result;
+        return nickname;
     }
 
 

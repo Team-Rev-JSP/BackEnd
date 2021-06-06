@@ -15,10 +15,7 @@
 </head>
 <body>
     <div>아이디<%=card.getId()%></div>
-<<<<<<< HEAD
-    <input type="button" value="삭제" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
-=======
+    <input type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
     <input type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=request.getParameter("idx")%>'">
->>>>>>> 74384717b5086ae429642742dcf37912dae6908c
 </body>
 </html>

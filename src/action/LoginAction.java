@@ -23,9 +23,10 @@ public class LoginAction implements Action {
         vo.setId(request.getParameter("id"));
         vo.setPassword(request.getParameter("password"));
         LoginService loginService = new LoginService();
-        boolean isWriteSuccess = loginService.registAccount(vo);
+        String isWriteSuccess = loginService.registAccount(vo);
+        vo.setNickname(isWriteSuccess);
 
-        if(!isWriteSuccess){
+        if(isWriteSuccess == null){
             request.setCharacterEncoding("UTF-8");
             PrintWriter out=response.getWriter();
             out.println("<script type=\"text/javascript\"charset=\"utf-8\">");
@@ -35,6 +36,7 @@ public class LoginAction implements Action {
             out.close();
         }else{
             session.setAttribute("id", vo.getId());
+            session.setAttribute("nickname", vo.getNickname());
             forward.setRedirect(true);
             forward.setPath("Main.bo");
         }
