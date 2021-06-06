@@ -18,6 +18,7 @@ public class ModifyAction implements Action {
         CardVO vo = new CardVO();
         String ids = request.getParameter("idx");
         int idx = Integer.parseInt(ids);
+        int page = Integer.parseInt(request.getParameter("page"));
         vo.setId(idx);
         vo.setName(request.getParameter("name"));
         System.out.println("ModifyAction name : " + vo.getName());
@@ -45,7 +46,7 @@ public class ModifyAction implements Action {
             out.println("</script>");
             out.close();
         } else {
-            forward.setPath("Detail.bo?idx="+idx);
+            forward.setPath("Detail.bo?idx="+idx+"&page="+page);
         }
         return forward;
     }

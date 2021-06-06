@@ -40,7 +40,7 @@
             <div class="content">
                 <%for(int i = 0; i < list.size() ; i++){
                 %>
-                <a class="card" href="Detail.bo?idx=<%=list.get(i).getId()%>">
+                <a class="card" href="Detail.bo?idx=<%=list.get(i).getId()%>&page=<%=nowPage%>">
                     <div class="card_top">
                         <div class="left">
                             <div class="name">
@@ -81,7 +81,7 @@
     <section class="pager_section">
         <div class="page_container">
             <%if(nowPage >= 10){%>
-                <a href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
+                <a class="prv" href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
             <%}%>
 
             <%  int start = nowPage/10*10+1;
@@ -91,11 +91,11 @@
             <%}%>
 
             <%if( !(nowPage / 10 == totalPage / 10) && nowPage < totalPage){%>
-                <a href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
+                <a class="next" href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
             <%}%>
         </div>
-        NOW PAGE : <%=nowPage%><br/>
-        TOTAL PAGE : <%=totalPage%><br/>
+<%--        NOW PAGE : <%=nowPage%><br/>--%>
+<%--        TOTAL PAGE : <%=totalPage%><br/>--%>
     </section>
     <input id="create_card" type="button" value="생성" onclick="location.href='Create.bo'">
 </div>

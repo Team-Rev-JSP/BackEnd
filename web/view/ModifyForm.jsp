@@ -12,6 +12,7 @@
     CardVO card = (CardVO)ob;
     String ids = request.getParameter("idx");
     int id = Integer.parseInt(ids);
+    int prvPage = Integer.parseInt(request.getParameter("page"));
 %>
 
 <html>
@@ -22,7 +23,7 @@
 </head>
 <body>
 <div class="body__container">
-    <form class="modify_form" action="ModifyProcess.bo?idx=<%=id%>" method="post">
+    <form class="modify_form" action="ModifyProcess.bo?idx=<%=id%>&page=<%=prvPage%>" method="post">
         <div class="card" >
             <div class="card_top">
                 <div class="left">
