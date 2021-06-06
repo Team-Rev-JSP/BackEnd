@@ -34,7 +34,7 @@
                 </div>
                 <!-- <input type="text" placeholder="password" name="photo_path" required style="height:30px; width: 380px" /><br /> -->
                 <div class="btn_box">
-                        <input id="create_card" type="button" value="이전" onclick="location.href='Main.bo'">
+                        <input id="create_card" type="button" value="이전" onclick="history.go(-1)">
                         <input type="submit" value="저장" class="login"/>
                 </div>
 

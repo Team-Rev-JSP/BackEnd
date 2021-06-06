@@ -11,7 +11,8 @@
 --%>
 <%
     ArrayList<CardVO> list = (ArrayList<CardVO>)request.getAttribute("lists");
-    PageInfo pageInfo = (PageInfo) request.getAttribute("page_info");
+    int totalPage =  (int)request.getAttribute("totalPage");
+    int nowPage =  (int)request.getAttribute("page");
 
     String id = (String)session.getAttribute("id");
 
@@ -77,8 +78,23 @@
             </div>
         </div>
     </section>
-    <section class="pager">
+    <section class="pager_section">
+        <div class="page_container">
+            <%if(nowPage >= 10){%>
+                <a>이전</a>
+            <%}%>
 
+            <%for(int i = nowPage/10*10+1 ; i < i+10 ; i++){%>
+                <%if(i > totalPage) break;%>
+                <a href="Main.bo?page=<%=i-1%>"><%=i%></a>
+            <%}%>
+
+            <%if( !(nowPage / 10 == totalPage / 10) && nowPage < totalPage){%>
+                <a>다음</a>
+            <%}%>
+        </div>
+        NOW PAGE : <%=nowPage%><br/>
+        TOTAL PAGE : <%=totalPage%><br/>
     </section>
     <input id="create_card" type="button" value="생성" onclick="location.href='Create.bo'">
 </div>

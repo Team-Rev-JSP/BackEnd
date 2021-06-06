@@ -4,7 +4,6 @@ package action;
 import service.CardListService;
 import vo.ActionForward;
 import vo.CardVO;
-import vo.PageInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,11 +21,15 @@ public class MainAction implements Action {
         String uid = (String)request.getSession().getAttribute("id");
 
         CardListService cardListService = new CardListService();
-        int totalCount = cardListService.getTotalpage();
+        int totalItem = cardListService.getTotalItem(uid) ;
+        System.out.println("TotalItem : " + totalItem);
+        int totalPage = (totalItem/9) + (totalItem%9 > 0 ? 1 : 0);
+        System.out.println("TotalItem : " + totalPage);
         list = cardListService.getLists(page, limit, uid);
         ActionForward forward = new ActionForward();
         request.setAttribute("lists", list);
-        request.setAttribute("totalpage", totalCount);
+        request.setAttribute("totalPage", totalPage);
+        request.setAttribute("page", page);
 
         forward.setPath("/view/Main.jsp");
         return forward;

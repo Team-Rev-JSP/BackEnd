@@ -100,15 +100,16 @@ public class CardDAO {
     }
 
     //전체 명함의 개수 구하기
-    public int getListCount() {
+    public int getListCount(String uid) {
         int count = 0;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT count(*) from card";
+        String sql = "SELECT count(*) from card where uid = ?";
 
         try {
             ps = con.prepareStatement(sql);
+            ps.setString(1, uid);
             rs = ps.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
@@ -192,7 +193,7 @@ public class CardDAO {
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
-                + "address=?, fax=?, url=?, company=?, photo_path=? WHERE id = ?";
+                + "address=?, fax=?, url=?, company=? WHERE idx = ?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -204,8 +205,7 @@ public class CardDAO {
             ps.setString(6, vo.getFax());
             ps.setString(7, vo.getUrl());
             ps.setString(8, vo.getCompany());
-            ps.setString(9, vo.getPhoto_path());
-            ps.setInt(10, vo.getId());
+            ps.setInt(9, vo.getId());
             result = ps.executeUpdate();
 
         } catch (Exception e) {

@@ -7,17 +7,17 @@ import vo.CardVO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CardModifyViewAction implements Action{
+public class ModifyViewAction implements Action{
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-//        String ids = request.getParameter("id");
-//        int id = Integer.parseInt(ids);
-        int idx = 32;
+        String ids = request.getParameter("idx");
+        int id = Integer.parseInt(ids);
 
         CardModifyService cardModifyViewService = new CardModifyService();
-        CardVO param = cardModifyViewService.ModifyView(idx);
-        request.setAttribute("modList", param);
+        CardVO param = cardModifyViewService.ModifyCard(id);
+        request.setAttribute("card", param);
+        request.setAttribute("idx", id);
         ActionForward forward = new ActionForward();
-        forward.setPath("/view/modifyForm.jsp");
+        forward.setPath("/view/ModifyForm.jsp");
         return forward;
     }
 }

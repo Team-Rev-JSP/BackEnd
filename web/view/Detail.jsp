@@ -54,7 +54,7 @@
     <div class="section_btn">
         <input id="back" type="button" value="이전" onclick="location.href='/Main.bo'">
         <input id="delete" type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=card.getId()%>'">
-        <input id="modify" type="button" value="수정" >
+        <input id="modify" type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=card.getId()%>'">
     </div>
 </div>
 </body>

@@ -83,28 +83,28 @@ public class WebController extends HttpServlet {
             }
         }
         else if(command.equals("/Modify.bo")){
-//            action = new ModifyFormAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new ModifyViewAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(command.equals("/ModifyProcess.bo")){
-//            action = new ModifyAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new ModifyAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(command.equals("/DeleteProcess.bo")){
-//            action = new DeleteAction();
-//            try {
-//                forward = action.execute(request, response);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            action = new DeleteAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         if (forward != null) {
