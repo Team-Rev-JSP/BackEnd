@@ -1,8 +1,6 @@
 package action;
 
-import action.Action;
-import dao.CardDAO;
-import service.CardModifyService;
+import service.ModifyService;
 import vo.ActionForward;
 import vo.CardVO;
 
@@ -10,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 
 public class ModifyAction implements Action {
     @Override
@@ -25,9 +22,8 @@ public class ModifyAction implements Action {
         vo.setFax(request.getParameter("fax"));
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
-        vo.setPhoto_path(request.getParameter("photo_path"));
 
-        CardModifyService cardModifyService = new CardModifyService();
+        ModifyService cardModifyService = new ModifyService();
         boolean isModifyChk = cardModifyService.ModifyCards(vo);
         ActionForward forward = new ActionForward();
 

@@ -8,13 +8,13 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardListService {
-    public int getTotalpage() throws Exception {
+public class ListService {
+    public int getTotalpage(String uid) throws Exception {
         int count = 0;
         Connection con = getConnection();
         CardDAO cardDAO = CardDAO.getInstance();
         cardDAO.setConnection(con);
-        count = cardDAO.getListCount();
+        count = cardDAO.getListCount(uid);
 //        close(con);
         return count;
     }

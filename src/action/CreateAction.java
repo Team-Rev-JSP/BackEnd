@@ -1,8 +1,6 @@
 package action;
 
-import action.Action;
-import dao.CardDAO;
-import service.CardAddService;
+import service.AddService;
 import vo.ActionForward;
 import vo.CardVO;
 
@@ -26,9 +24,8 @@ public class CreateAction implements Action {
         vo.setFax(request.getParameter("fax"));
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
-        vo.setPhoto_path(request.getParameter("photo_path"));
         vo.setUid((String)session.getAttribute("id"));
-        CardAddService cardAddService = new CardAddService();
+        AddService cardAddService = new AddService();
         boolean isWriteSuccess = cardAddService.registcard(vo);
 
         if(!isWriteSuccess){
