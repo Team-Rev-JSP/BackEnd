@@ -13,7 +13,7 @@ public class DeleteAction implements Action {
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String ids = request.getParameter("id");
+        String ids = request.getParameter("idx");
         int id = Integer.parseInt(ids);
         ActionForward forward = new ActionForward();
         CardDeleteService cardDeleteService = new CardDeleteService();

@@ -40,7 +40,7 @@ public class CreateAction implements Action {
             out.close();
         }else{
             forward.setRedirect(true);
-            forward.setPath("cardLists.bo");
+            forward.setPath("Main.bo");
         }
         return forward;
     }
