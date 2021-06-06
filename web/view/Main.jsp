@@ -81,16 +81,17 @@
     <section class="pager_section">
         <div class="page_container">
             <%if(nowPage >= 10){%>
-                <a>이전</a>
+                <a href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
             <%}%>
 
-            <%for(int i = nowPage/10*10+1 ; i < i+10 ; i++){%>
+            <%  int start = nowPage/10*10+1;
+                for(int i = start ; i < start+10 ; i++){%>
                 <%if(i > totalPage) break;%>
                 <a href="Main.bo?page=<%=i-1%>"><%=i%></a>
             <%}%>
 
             <%if( !(nowPage / 10 == totalPage / 10) && nowPage < totalPage){%>
-                <a>다음</a>
+                <a href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
             <%}%>
         </div>
         NOW PAGE : <%=nowPage%><br/>
