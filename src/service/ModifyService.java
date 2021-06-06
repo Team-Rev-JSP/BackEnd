@@ -5,7 +5,7 @@ import vo.CardVO;
 import java.sql.Connection;
 import static db.DbBridge.*;
 
-public class CardModifyService {
+public class ModifyService {
     public CardVO ModifyView(int idx) {
         CardDAO cardDAO = CardDAO.getInstance();
         CardVO param = new CardVO();

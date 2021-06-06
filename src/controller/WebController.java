@@ -29,13 +29,20 @@ public class WebController extends HttpServlet {
 
         Action action = null;
 
-        if(command.equals("Login.bo")){
+        if(command.equals("/Login.bo")){
             forward = new ActionForward();
             forward.setPath("/view/Login.jsp");
         }
         else if(command.equals("/LoginProcess.bo")){
             HttpSession session = request.getSession(true);
             action = new LoginAction(session);
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if(command.equals("/Logout.bo")){
+            action = new LogoutAction();
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {
