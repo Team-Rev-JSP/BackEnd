@@ -128,3 +128,16 @@
     background: cornflowerblue;
     color: white;
 }
+
+#logout_card{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 52px;
+    height: 52px;
+    border-radius: 72px;
+    outline: none;
+    border: 0;
+    background: cornflowerblue;
+    color: white;
+}

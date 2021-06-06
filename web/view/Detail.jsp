@@ -1,3 +1,4 @@
+
 <%@ page import="vo.CardVO" %><%--
   Created by IntelliJ IDEA.
   User: gooda
@@ -17,15 +18,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <div>아이디<%=card.getId()%></div>
-    <input type="button" value="삭제" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
-=======
-<<<<<<< HEAD
-    <div>아이디<%=card.getId()%></div>
-    <input type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=request.getParameter("idx")%>'">
-    <input type="button" value="삭제" onclick="location.href='/DeleteProcess.bo?idx=<%=request.getParameter("idx")%>'">
-=======
 <div class="body__container">
     <div class="card" >
         <div class="card_top">
@@ -67,7 +59,5 @@
         <input id="modify" type="button" value="수정" onclick="location.href='/Modify.bo?idx=<%=card.getId()%>&page=<%=prvPage%>'">
     </div>
 </div>
->>>>>>> teayeong
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
 </body>
 </html>

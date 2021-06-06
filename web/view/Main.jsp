@@ -1,4 +1,3 @@
-
 <%@ page import="vo.CardVO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vo.PageInfo" %>
@@ -13,44 +12,11 @@
     ArrayList<CardVO> list = (ArrayList<CardVO>)request.getAttribute("lists");
     int totalPage =  (int)request.getAttribute("totalPage");
     int nowPage =  (int)request.getAttribute("page");
-
-    String id = (String)session.getAttribute("id");
     String nickname = (String)session.getAttribute("nickname");
-
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<<<<<<< HEAD
-    <title>Main</title>
-</head>
-<body>
-    메인페이지 입니다.
-    각각 받아오는 정보는 <br>
-    <input type="button" value="등록" onclick="location.href='Create.bo'">
-    ${nickname}
-    ${id}
-    <input type="button" value="로그아웃" onclick="location.href='/Logout.bo';">
-    <%for(int i = 0; i < list.size() ; i++){
-    %>
-        <a href="Detail.bo?idx=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a>
-    <%}%>
-=======
-<<<<<<< HEAD
-    <title>Main</title>
-</head>
-<body>
-    메인페이지 입니다.
-    각각 받아오는 정보는 <br>
-    <input type="button" value="등록" onclick="location.href='Create.bo'">
-    ${nickname}
-    ${id}
-    <input type="button" value="로그아웃" onclick="location.href='/Logout.bo';">
-    <%for(int i = 0; i < list.size() ; i++){
-    %>
-        <a href="Detail.bo?idx=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a>
-    <%}%>
-=======
     <title>CARDIS</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -62,7 +28,7 @@
 <div class="body__container">
     <header class="header">
         <div class="inner">
-            ${id}님 반갑습니다.
+            ${nickname}님 반갑습니다.
         </div>
     </header>
 
@@ -112,25 +78,24 @@
     <section class="pager_section">
         <div class="page_container">
             <%if(nowPage >= 10){%>
-                <a class="prv" href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
+            <a class="prv" href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
             <%}%>
 
             <%  int start = nowPage/10*10+1;
                 for(int i = start ; i < start+10 ; i++){%>
-                <%if(i > totalPage) break;%>
-                <a href="Main.bo?page=<%=i-1%>"><%=i%></a>
+            <%if(i > totalPage) break;%>
+            <a href="Main.bo?page=<%=i-1%>"><%=i%></a>
             <%}%>
 
             <%if( !(nowPage / 10 == totalPage / 10) && nowPage < totalPage){%>
-                <a class="next" href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
+            <a class="next" href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
             <%}%>
         </div>
-<%--        NOW PAGE : <%=nowPage%><br/>--%>
-<%--        TOTAL PAGE : <%=totalPage%><br/>--%>
+        <%--        NOW PAGE : <%=nowPage%><br/>--%>
+        <%--        TOTAL PAGE : <%=totalPage%><br/>--%>
     </section>
     <input id="create_card" type="button" value="생성" onclick="location.href='Create.bo'">
+    <input id="logout_card" type="button" value="로그아웃" onclick="location.href='Logout.bo'">
 </div>
->>>>>>> teayeong
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
 </body>
 </html>

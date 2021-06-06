@@ -1,8 +1,9 @@
+
 package action;
 
 import action.Action;
 import dao.CardDAO;
-import service.CardModifyService;
+import service.ModifyService;
 import vo.ActionForward;
 import vo.CardVO;
 
@@ -31,12 +32,8 @@ public class ModifyAction implements Action {
         vo.setPhone(request.getParameter("phone"));
         vo.setEmail(request.getParameter("email"));
         vo.setUrl(request.getParameter("url"));
-<<<<<<< HEAD
-        vo.setCompany(request.getParameter("company"));
-=======
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
 
-        CardModifyService cardModifyService = new CardModifyService();
+        ModifyService cardModifyService = new ModifyService();
         boolean isModifyChk = cardModifyService.ModifyCards(vo);
         ActionForward forward = new ActionForward();
 

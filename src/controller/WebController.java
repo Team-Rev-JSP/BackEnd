@@ -16,7 +16,7 @@ import java.io.IOException;
 public class WebController extends HttpServlet {
 
     protected void doProcess(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
         String RequestURI = request.getRequestURI();
@@ -29,7 +29,7 @@ public class WebController extends HttpServlet {
 
         Action action = null;
 
-        if(command.equals("/Login.bo")){
+        if(command.equals("Login.bo")){
             forward = new ActionForward();
             forward.setPath("/view/Login.jsp");
         }
@@ -81,7 +81,7 @@ public class WebController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        else if(command.equals("/Detail.bo")){
+        if(command.equals("/Detail.bo")){
             action = new DetailAction();
             try {
                 forward = action.execute(request, response);
@@ -90,11 +90,7 @@ public class WebController extends HttpServlet {
             }
         }
         else if(command.equals("/Modify.bo")){
-<<<<<<< HEAD
-            action = new ModifyFormAction();
-=======
             action = new ModifyViewAction();
->>>>>>> teayeong
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {
@@ -123,7 +119,7 @@ public class WebController extends HttpServlet {
                 response.sendRedirect(forward.getPath());
             } else {
                 RequestDispatcher dispatcher =
-                        request.getRequestDispatcher(forward.getPath());
+                    request.getRequestDispatcher(forward.getPath());
                 dispatcher.forward(request, response);
             }
         }
@@ -131,13 +127,13 @@ public class WebController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         doProcess(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         doProcess(request, response);
     }
 }

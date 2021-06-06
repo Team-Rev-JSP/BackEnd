@@ -10,19 +10,37 @@ public class DbBridge {
 
   public static Connection getConnection() {
 
-     Connection con = null;
-      try {
-        Context initCtx = new InitialContext();
-        Context envCtx = (Context) initCtx.lookup("java:comp/env");
-        DataSource ds = (DataSource) envCtx.lookup("jdbc/MysqlDB");
-        con = ds.getConnection();
-        con.setAutoCommit(false);
-        System.out.println("DB 연결");
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+    Connection con = null;
+    try {
+      Context initCtx = new InitialContext();
+      Context envCtx = (Context) initCtx.lookup("java:comp/env");
+      DataSource ds = (DataSource) envCtx.lookup("jdbc/MysqlDB");
+      con = ds.getConnection();
+      con.setAutoCommit(false);
+      System.out.println("DB 연결");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return con;
   }
+    /*
+    public static void close(Connection con, PreparedStatement pstmt) {
+        if(con != null) {
+            try {
+                con.close();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(pstmt != null) {
+            try {
+                pstmt.close();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }*/
+
   public static void close(Connection con) {
     try {
       con.close();

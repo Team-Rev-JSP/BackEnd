@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardDAO {
+    DataSource ds;
     Connection con;
     private static CardDAO cardDAO;
 
@@ -36,13 +37,7 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
->>>>>>> teayeong
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
         String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, uid) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -55,15 +50,10 @@ public class CardDAO {
             ps.setString(6, param.getFax());
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
->>>>>>> teayeong
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
             ps.setString(9, param.getUid());
             result = ps.executeUpdate();
+            System.out.println("check");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -82,6 +72,7 @@ public class CardDAO {
         String sql = "SELECT * FROM card WHERE idx = ?";
 
         try {
+            System.out.println("findOneCard idx : " + idx);
             ps = con.prepareStatement(sql);
             ps.setInt(1, idx);
             rs = ps.executeQuery();
@@ -134,19 +125,17 @@ public class CardDAO {
 
     // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
     public List<CardVO> getCardList(int page, int limit, String  uid) {
-        List<CardVO> list = new ArrayList();
+        List<CardVO> list = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         CardVO card = null;
-        int startrow = (page - 1) * 10;
-        System.out.println(startrow);
 
         String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit ?, ?";
 
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, uid);
-            ps.setInt(2, page);
+            ps.setInt(2, page*limit);
             ps.setInt(3, limit);
             rs = ps.executeQuery();
 
@@ -172,19 +161,36 @@ public class CardDAO {
         }
         return list;
     }
+    /*
+    // 명함 삭제하는 사용자가 본인 자신인지 체크하는 메서드
+    public boolean isChkCardWriter(int id, String password) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean chk = false;
+        String sql = "SELECT * FROM card WHERE id = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            rs.next();
+            if(password.equals(rs.getString("name"))) {// 카드DB에도 비번이 필요해 보이는데
+                    chk = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return chk;
+    }
+    */
 
     /* ---------------------UPDATE---------------------------
-        사용자가 수정을 필요로할때 수정 할 수 있도록 해주는 메서드 */
+//     사용자가 수정을 필요로할때 수정 할 수 있도록 해주는 메서드 */
     public int ModifyCard(CardVO vo) {
         PreparedStatement ps = null;
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
-<<<<<<< HEAD
-                + "address=?, fax=?, url=?, company=?, WHERE idx = ?";
-=======
-                + "address=?, fax=?, url=?, company=? WHERE idx = ?";
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
+            + "address=?, fax=?, url=?, company=? WHERE idx = ?";
 
         try {
             ps = con.prepareStatement(sql);

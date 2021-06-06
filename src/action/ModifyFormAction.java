@@ -11,7 +11,7 @@ public class ModifyFormAction implements Action{
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
         int idx = Integer.parseInt(request.getParameter("idx"));
         ModifyService cardModifyViewService = new ModifyService();
-        CardVO param = cardModifyViewService.ModifyView(idx);
+        CardVO param = cardModifyViewService.ModifyCard(idx);
         request.setAttribute("card", param);
         ActionForward forward = new ActionForward();
         forward.setPath("/view/Modify.jsp");

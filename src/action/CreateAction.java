@@ -1,12 +1,13 @@
 package action;
 
+import action.Action;
+import dao.CardDAO;
 import service.AddService;
 import vo.ActionForward;
 import vo.CardVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
 public class CreateAction implements Action {
@@ -15,7 +16,6 @@ public class CreateAction implements Action {
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         CardVO vo = new CardVO();
         ActionForward forward = new ActionForward();
-        HttpSession session = request.getSession();
         vo.setName(request.getParameter("name"));
         vo.setPhone(request.getParameter("phone"));
         vo.setEmail(request.getParameter("email"));
@@ -24,17 +24,9 @@ public class CreateAction implements Action {
         vo.setFax(request.getParameter("fax"));
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
-        vo.setUid((String)session.getAttribute("id"));
-        AddService cardAddService = new AddService();
-=======
 
         vo.setUid((String)request.getSession().getAttribute("id"));
-        CardAddService cardAddService = new CardAddService();
->>>>>>> teayeong
+        AddService cardAddService = new AddService();
         boolean isWriteSuccess = cardAddService.registcard(vo);
 
         if(!isWriteSuccess){

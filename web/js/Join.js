@@ -2,15 +2,7 @@ const form = document.getElementById('form');
 const id = document.getElementById('id');
 const password = document.getElementById('password');
 const nickname = document.getElementById('nickname');
-<<<<<<< HEAD
-<<<<<<< HEAD
 const join_btn = document.getElementById('join');
-=======
-const submit_btn = document.getElementById('submit');
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-=======
-const submit_btn = document.getElementById('submit');
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
 
 // Show input error message
 function showError(input, message) {
@@ -35,14 +27,6 @@ function checkRequired(inputArr) {
             isOk = false;
         } else {
             isOk = isOk && true;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            showSuccess(input);
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-=======
-            showSuccess(input);
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
         }
     });
 
@@ -52,32 +36,12 @@ function checkRequired(inputArr) {
 // Check input length
 function checkLength(input, min, max) {
     if (input.value.length < min) {
-<<<<<<< HEAD
-<<<<<<< HEAD
         showError(input, `최소 ${min} 글자를 입력하세요`);
     } else if (input.value.length > max) {
         showError(input, `최대 ${max} 글자를 입력할 수 있습니다`);
     } else {
         showSuccess(input);
         return 1;
-=======
-=======
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-        showError(
-            input,
-            `최소 ${min} 글자를 입력하세요`
-        );
-    } else if (input.value.length > max) {
-        showError(
-            input,
-            `최대 ${max} 글자를 입력할 수 있습니다`
-        );
-    } else {
-        showSuccess(input);
-<<<<<<< HEAD
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-=======
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
     }
 }
 
@@ -89,8 +53,6 @@ function getFieldName(input) {
 // Event listeners
 function join(e) {
     e.preventDefault();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     let successCnt = 0;
 
@@ -106,19 +68,3 @@ function join(e) {
 };
 
 join_btn.addEventListener('click', (e) => join(e))
-=======
-=======
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-    if(checkRequired([id, password, nickname])){
-        checkLength(id, 6, 15);
-        checkLength(password, 8, 15);
-        checkLength(nickname, 2, 15);
-    }
-};
-
-<<<<<<< HEAD
-submit_btn.addEventListener('click', (e) => join(e))
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8
-=======
-submit_btn.addEventListener('click', (e) => join(e))
->>>>>>> cd4b908910cabdfd6f10e9fc9930cd67e45e91b8

@@ -8,31 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<<<<<<< HEAD
-    <title>Title</title>
-</head>
-<body>
-<form action="CreateProcess.bo" method="post">
-        <input type="text" placeholder="name" name="name" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="phone" name="phone" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="email" name="email" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="position" name="position" required style="height:30px; width: 380px" /><br />
-<<<<<<< HEAD
-        <input type="text" placeholder="password" name="address" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="id" name="fax" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="url" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="id" name="company" required style="height:30px; width: 380px" /><br />
-=======
-        <input type="text" placeholder="address" name="address" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="fax" name="fax" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="url" name="url" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="company" name="company" required style="height:30px; width: 380px" /><br />
->>>>>>> 23a777e3c198c981baea1e02244c5f76a69c33ac
-        <input type="submit" value="로그인" class="login" />
-</form>
-=======
-    <title>CARDIS</title>
-    <link rel="stylesheet" href="../css/Create.css"/>
+        <title>CARDIS</title>
+        <link rel="stylesheet" href="../css/Create.css"/>
 </head>
 <body>
 <div class="body__container">
@@ -63,6 +40,5 @@
 
         </form>
 </div>
->>>>>>> teayeong
 </body>
 </html>

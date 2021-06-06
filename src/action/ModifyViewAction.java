@@ -1,6 +1,7 @@
+
 package action;
 
-import service.CardModifyService;
+import service.ModifyService;
 import vo.ActionForward;
 import vo.CardVO;
 
@@ -13,7 +14,7 @@ public class ModifyViewAction implements Action{
         int id = Integer.parseInt(ids);
         int page = Integer.parseInt(request.getParameter("page"));
 
-        CardModifyService cardModifyViewService = new CardModifyService();
+        ModifyService cardModifyViewService = new ModifyService();
         CardVO param = cardModifyViewService.ModifyCard(id);
         request.setAttribute("card", param);
         request.setAttribute("idx", id);

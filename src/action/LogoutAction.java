@@ -13,7 +13,7 @@ public class LogoutAction implements Action {
         System.out.println(session.getAttribute("id"));
         session.invalidate();
         ActionForward forward = new ActionForward();
-        forward.setPath("/Login.bo");
+        forward.setPath("/");
         return forward;
     }
 }
