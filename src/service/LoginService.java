@@ -11,22 +11,22 @@ import vo.AccountVO;
 
 public class LoginService {
 
-    public boolean registAccount(AccountVO param) throws Exception{
+    public String registAccount(AccountVO param) throws Exception{
 
-        boolean isWriteSuccess = false;
+        String NickChk = "";
         AccountDAO accountDAO = AccountDAO.getInstance();
         Connection con = getConnection();
         accountDAO.setConnection(con);
-        int insertCount = accountDAO.getAccount(param);
+        String nickname = accountDAO.getAccount(param);
 
-        if(insertCount > 0){
+        if(nickname != null){
             commit(con);
-            isWriteSuccess = true;
+            NickChk = nickname;
         }
         else{
             rollback(con);
         }
 //        close(con);
-        return isWriteSuccess;
+        return NickChk;
     }
 }

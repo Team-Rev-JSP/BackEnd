@@ -20,7 +20,6 @@
         <input type="text" placeholder="id" name="fax" required style="height:30px; width: 380px" /><br />
         <input type="text" placeholder="password" name="url" required style="height:30px; width: 380px" /><br />
         <input type="text" placeholder="id" name="company" required style="height:30px; width: 380px" /><br />
-        <input type="text" placeholder="password" name="photo_path" required style="height:30px; width: 380px" /><br />
         <input type="submit" value="로그인" class="login" />
 </form>
 </body>

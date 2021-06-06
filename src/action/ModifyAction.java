@@ -25,7 +25,6 @@ public class ModifyAction implements Action {
         vo.setFax(request.getParameter("fax"));
         vo.setUrl(request.getParameter("url"));
         vo.setCompany(request.getParameter("company"));
-        vo.setPhoto_path(request.getParameter("photo_path"));
 
         CardModifyService cardModifyService = new CardModifyService();
         boolean isModifyChk = cardModifyService.ModifyCards(vo);

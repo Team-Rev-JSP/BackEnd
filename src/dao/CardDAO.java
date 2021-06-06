@@ -37,7 +37,7 @@ public class CardDAO {
         int result = 0;
         PreparedStatement ps = null;
 
-        String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, photo_path, uid) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO card (name, phone, email, position, address, fax, url, company, uid) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
             ps = con.prepareStatement(sql);
@@ -49,10 +49,8 @@ public class CardDAO {
             ps.setString(6, param.getFax());
             ps.setString(7, param.getUrl());
             ps.setString(8, param.getCompany());
-            ps.setString(9, param.getPhoto_path());
-            ps.setString(10, param.getUid());
+            ps.setString(9, param.getUid());
             result = ps.executeUpdate();
-            System.out.println("check");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -87,7 +85,6 @@ public class CardDAO {
                 vo.setFax(rs.getString("fax"));
                 vo.setUrl(rs.getString("url"));
                 vo.setCompany(rs.getString("company"));
-                vo.setPhoto_path(rs.getString("photo_path"));
                 vo.setUid(rs.getString("uid"));
             }
         } catch (Exception e) {
@@ -100,15 +97,16 @@ public class CardDAO {
     }
 
     //전체 명함의 개수 구하기
-    public int getListCount() {
+    public int getListCount(String uid) {
         int count = 0;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT count(*) from card";
+        String sql = "SELECT count(*) from card where uid = ?";
 
         try {
             ps = con.prepareStatement(sql);
+            ps.setString(1, uid);
             rs = ps.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
@@ -124,17 +122,19 @@ public class CardDAO {
 
     // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
     public List<CardVO> getCardList(int page, int limit, String  uid) {
-        List<CardVO> list = new ArrayList<>();
+        List<CardVO> list = new ArrayList();
         PreparedStatement ps = null;
         ResultSet rs = null;
         CardVO card = null;
+        int startrow = (page - 1) * 10;
+        System.out.println(startrow);
 
         String sql = "SELECT * FROM card WHERE uid = ? ORDER BY idx DESC limit ?, ?";
 
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, uid);
-            ps.setInt(2, page*limit);
+            ps.setInt(2, page);
             ps.setInt(3, limit);
             rs = ps.executeQuery();
 
@@ -149,7 +149,6 @@ public class CardDAO {
                 card.setFax(rs.getString("fax"));
                 card.setUrl(rs.getString("url"));
                 card.setCompany(rs.getString("company"));
-                card.setPhoto_path(rs.getString("photo_path"));
                 list.add(card);
             }
 
@@ -161,39 +160,15 @@ public class CardDAO {
         }
         return list;
     }
-    /*
-    // 명함 삭제하는 사용자가 본인 자신인지 체크하는 메서드
-    public boolean isChkCardWriter(int id, String password) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        boolean chk = false;
-
-        String sql = "SELECT * FROM card WHERE id = ?";
-
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-            rs.next();
-
-            if(password.equals(rs.getString("name"))) {// 카드DB에도 비번이 필요해 보이는데
-                    chk = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return chk;
-    }
-    */
 
     /* ---------------------UPDATE---------------------------
-//     사용자가 수정을 필요로할때 수정 할 수 있도록 해주는 메서드 */
+        사용자가 수정을 필요로할때 수정 할 수 있도록 해주는 메서드 */
     public int ModifyCard(CardVO vo) {
         PreparedStatement ps = null;
         int result = 0;
 
         String sql = "UPDATE card SET name=?, phone=?, email=?, position=?, "
-                + "address=?, fax=?, url=?, company=?, photo_path=? WHERE idx = ?";
+                + "address=?, fax=?, url=?, company=?, WHERE idx = ?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -205,8 +180,7 @@ public class CardDAO {
             ps.setString(6, vo.getFax());
             ps.setString(7, vo.getUrl());
             ps.setString(8, vo.getCompany());
-            ps.setString(9, vo.getPhoto_path());
-            ps.setInt(10, vo.getId());
+            ps.setInt(9, vo.getId());
             result = ps.executeUpdate();
 
         } catch (Exception e) {

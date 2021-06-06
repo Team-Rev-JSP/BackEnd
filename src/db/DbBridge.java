@@ -25,24 +25,6 @@ public class DbBridge {
     }
     return con;
   }
-    /*
-    public static void close(Connection con, PreparedStatement pstmt) {
-        if(con != null) {
-            try {
-                con.close();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if(pstmt != null) {
-            try {
-                pstmt.close();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
-
   public static void close(Connection con) {
     try {
       con.close();
