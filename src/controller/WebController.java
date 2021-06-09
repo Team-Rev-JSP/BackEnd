@@ -69,6 +69,14 @@ public class WebController extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        else if(command.equals("/Search.bo")){
+            action = new SearchAction();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         else if(command.equals("/Create.bo")){
             forward = new ActionForward();
             forward.setPath("/view/CreateForm.jsp");

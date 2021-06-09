@@ -13,6 +13,8 @@
     int totalPage =  (int)request.getAttribute("totalPage");
     int nowPage =  (int)request.getAttribute("page");
     String nickname = (String)session.getAttribute("nickname");
+    String searchText = (String)request.getAttribute("search");
+    if(searchText == null) searchText = "";
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -28,7 +30,17 @@
 <div class="body__container">
     <header class="header">
         <div class="inner">
-            ${nickname}님 반갑습니다.
+            <div>
+                ${nickname}님 반갑습니다.
+            </div>
+            <div>
+                <form action="Main.bo" method="get">
+                    <label>
+                        <input class="search" type="text" placeholder="Search..." autocomplete='off' name="search" required />
+                    </label>
+                    <input type="submit" value="검색" class="search_btn"/>
+                </form>
+            </div>
         </div>
     </header>
 
@@ -78,17 +90,17 @@
     <section class="pager_section">
         <div class="page_container">
             <%if(nowPage >= 10){%>
-            <a class="prv" href="Main.bo?page=<%=(nowPage/10-1)*10%>">이전</a>
+            <a class="prv" href="Main.bo?page=<%=(nowPage/10-1)*10%>&search=<%=searchText%>">이전</a>
             <%}%>
 
             <%  int start = nowPage/10*10+1;
                 for(int i = start ; i < start+10 ; i++){%>
             <%if(i > totalPage) break;%>
-            <a href="Main.bo?page=<%=i-1%>"><%=i%></a>
+            <a href="Main.bo?page=<%=i-1%>&search=<%=searchText%>"><%=i%></a>
             <%}%>
 
             <%if( !(nowPage / 10 == totalPage / 10) && nowPage < totalPage){%>
-            <a class="next" href="Main.bo?page=<%=(nowPage/10+1)*10%>">다음</a>
+            <a class="next" href="Main.bo?page=<%=(nowPage/10+1)*10%>&search=<%=searchText%>">다음</a>
             <%}%>
         </div>
         <%--        NOW PAGE : <%=nowPage%><br/>--%>

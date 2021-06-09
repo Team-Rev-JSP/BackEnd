@@ -123,6 +123,30 @@ public class CardDAO {
         return count;
     }
 
+    public int getListCountWithName(String uid, String search) {
+        int count = 0;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT count(*) from card where uid = ? and (name like ? or company like ?)";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, uid);
+            ps.setString(2, "%" + search + "%");
+            ps.setString(3, "%" + search + "%");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(ps);
+            close(rs);
+        }
+        return count;
+    }
     // 메인화면에 현재 명함들을 List로 전부 가지고오는 메서드
     public List<CardVO> getCardList(int page, int limit, String  uid) {
         List<CardVO> list = new ArrayList<>();
@@ -137,6 +161,45 @@ public class CardDAO {
             ps.setString(1, uid);
             ps.setInt(2, page*limit);
             ps.setInt(3, limit);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                card = new CardVO();
+                card.setId(rs.getInt("idx"));
+                card.setName(rs.getString("name"));
+                card.setPhone(rs.getString("phone"));
+                card.setEmail(rs.getString("email"));
+                card.setPosition(rs.getString("position"));
+                card.setAddress(rs.getString("address"));
+                card.setFax(rs.getString("fax"));
+                card.setUrl(rs.getString("url"));
+                card.setCompany(rs.getString("company"));
+                list.add(card);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(ps);
+            close(rs);
+        }
+        return list;
+    }
+    public List<CardVO> getCardListWithName(int page, int limit, String  uid, String search) {
+        List<CardVO> list = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        CardVO card = null;
+
+        String sql = "SELECT * FROM card WHERE uid = ? and (name like ? or company like ?) ORDER BY idx DESC limit ?, ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, uid);
+            ps.setString(2, "%" + search + "%");
+            ps.setString(3, "%" + search + "%");
+            ps.setInt(4, page*limit);
+            ps.setInt(5, limit);
             rs = ps.executeQuery();
 
             while (rs.next()) {
